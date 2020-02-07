@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Diseño Completamente al Azar | Introducción a los Diseños Experimentales con R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Diseño Completamente al Azar | Introducción a los Diseños Experimentales con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Diseño Completamente al Azar | Introducción a los Diseños Experimentales con R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Ana Vargas   e-mail:anavargas@lamolina.edu.pe" />
+
+
+<meta name="date" content="2020-02-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="experimentos-simples-comparativos.html"/>
+<link rel="next" href="diseño-en-bloque-completamente-al-azar.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introducción a los diseños Experimentales con R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#qué-es-el-método-científico"><i class="fa fa-check"></i><b>1.1</b> ¿Qué es el método científico?</a><ul>
+<li><a href="intro.html#actividad"><em>ACTIVIDAD</em></a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#estudio-de-diseño-observacional-o-estudio-de-diseño-experimental"><i class="fa fa-check"></i><b>1.2</b> ¿Estudio de diseño observacional o estudio de diseño experimental?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#breve-historia-de-los-diseño-de-experimentos"><i class="fa fa-check"></i><b>1.3</b> Breve historia de los diseño de experimentos</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#principios-básicos-de-los-diseños-experimentales"><i class="fa fa-check"></i><b>1.4</b> Principios básicos de los diseños experimentales</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#pasos-para-planear-conducir-y-analizar-un-experimento"><i class="fa fa-check"></i><b>1.5</b> Pasos para planear, conducir y analizar un experimento</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#elementos-básicos"><i class="fa fa-check"></i><b>1.6</b> Elementos básicos</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="intro.html"><a href="intro.html#unidad-experimental"><i class="fa fa-check"></i><b>1.6.1</b> Unidad experimental</a></li>
+<li class="chapter" data-level="1.6.2" data-path="intro.html"><a href="intro.html#error-experimental"><i class="fa fa-check"></i><b>1.6.2</b> Error experimental</a></li>
+<li class="chapter" data-level="1.6.3" data-path="intro.html"><a href="intro.html#factor"><i class="fa fa-check"></i><b>1.6.3</b> Factor</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="experimentos-simples-comparativos.html"><a href="experimentos-simples-comparativos.html"><i class="fa fa-check"></i><b>2</b> Experimentos simples comparativos</a><ul>
+<li class="chapter" data-level="2.1" data-path="experimentos-simples-comparativos.html"><a href="experimentos-simples-comparativos.html#prueba-t-para-dos-muestras-independientes"><i class="fa fa-check"></i><b>2.1</b> Prueba t para dos muestras independientes</a></li>
+<li class="chapter" data-level="2.2" data-path="experimentos-simples-comparativos.html"><a href="experimentos-simples-comparativos.html#ejemplo-motivación-y-creatividad.-un-experimento-aleatorizado"><i class="fa fa-check"></i><b>2.2</b> Ejemplo: Motivación y creatividad. Un experimento aleatorizado</a></li>
+<li class="chapter" data-level="2.3" data-path="experimentos-simples-comparativos.html"><a href="experimentos-simples-comparativos.html#sobre-los-supuestos"><i class="fa fa-check"></i><b>2.3</b> Sobre los supuestos:</a></li>
+<li class="chapter" data-level="2.4" data-path="experimentos-simples-comparativos.html"><a href="experimentos-simples-comparativos.html#actividad-1"><i class="fa fa-check"></i><b>2.4</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html"><i class="fa fa-check"></i><b>3</b> Diseño Completamente al Azar</a><ul>
+<li class="chapter" data-level="3.1" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html#plan-de-diseño"><i class="fa fa-check"></i><b>3.1</b> Plan de diseño</a></li>
+<li class="chapter" data-level="3.2" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html#análisis-de-varianza"><i class="fa fa-check"></i><b>3.2</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="3.3" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html#prueba-de-comparaciones-por-pares"><i class="fa fa-check"></i><b>3.3</b> Prueba de Comparaciones por pares</a></li>
+<li class="chapter" data-level="3.4" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html#prueba-de-comparaciones-múltiples"><i class="fa fa-check"></i><b>3.4</b> Prueba de comparaciones Múltiples</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html#diferencia-mínima-significativadls"><i class="fa fa-check"></i><b>3.4.1</b> Diferencia Mínima Significativa(DLS)</a></li>
+<li class="chapter" data-level="3.4.2" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html#prueba-de-tukey-para-post-hoc-comparaciones-de-pares-de-tratamientos"><i class="fa fa-check"></i><b>3.4.2</b> Prueba de Tukey para <em>post-hoc</em> comparaciones de pares de tratamientos</a></li>
+<li class="chapter" data-level="3.4.3" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html#prueba-de-dunnett-para-comparar-cada-uno-de-los-tratamientos-a-un-control"><i class="fa fa-check"></i><b>3.4.3</b> Prueba de Dunnett para comparar cada uno de los tratamientos a un control</a></li>
+<li class="chapter" data-level="3.4.4" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html#pruebas-de-duncan"><i class="fa fa-check"></i><b>3.4.4</b> Pruebas de Duncan</a></li>
+<li class="chapter" data-level="3.4.5" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html#pruebas-de-significación-de-contrastes-para-comparaciones-pre-planeadas"><i class="fa fa-check"></i><b>3.4.5</b> Pruebas de significación de contrastes para comparaciones pre-planeadas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="diseño-completamente-al-azar.html"><a href="diseño-completamente-al-azar.html#actividad-2"><i class="fa fa-check"></i><b>3.5</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="diseño-en-bloque-completamente-al-azar.html"><a href="diseño-en-bloque-completamente-al-azar.html"><i class="fa fa-check"></i><b>4</b> Diseño en Bloque Completamente al Azar</a><ul>
+<li class="chapter" data-level="4.1" data-path="diseño-en-bloque-completamente-al-azar.html"><a href="diseño-en-bloque-completamente-al-azar.html#plan-de-diseño-1"><i class="fa fa-check"></i><b>4.1</b> Plan de diseño</a></li>
+<li class="chapter" data-level="4.2" data-path="diseño-en-bloque-completamente-al-azar.html"><a href="diseño-en-bloque-completamente-al-azar.html#análisis-de-varianza-1"><i class="fa fa-check"></i><b>4.2</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="4.3" data-path="diseño-en-bloque-completamente-al-azar.html"><a href="diseño-en-bloque-completamente-al-azar.html#actividad-3"><i class="fa fa-check"></i><b>4.3</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="diseño-cuadrado-latino.html"><a href="diseño-cuadrado-latino.html"><i class="fa fa-check"></i><b>5</b> Diseño Cuadrado Latino</a><ul>
+<li class="chapter" data-level="5.1" data-path="diseño-cuadrado-latino.html"><a href="diseño-cuadrado-latino.html#plan-de-diseño-2"><i class="fa fa-check"></i><b>5.1</b> Plan de diseño</a></li>
+<li class="chapter" data-level="5.2" data-path="diseño-cuadrado-latino.html"><a href="diseño-cuadrado-latino.html#análisis-de-varianza-2"><i class="fa fa-check"></i><b>5.2</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="5.3" data-path="diseño-cuadrado-latino.html"><a href="diseño-cuadrado-latino.html#actividad-4"><i class="fa fa-check"></i><b>5.3</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introducción-a-los-experimentos-factoriales.html"><a href="introducción-a-los-experimentos-factoriales.html"><i class="fa fa-check"></i><b>6</b> Introducción a los Experimentos factoriales</a><ul>
+<li class="chapter" data-level="6.1" data-path="introducción-a-los-experimentos-factoriales.html"><a href="introducción-a-los-experimentos-factoriales.html#experimentos-factorial-p-x-q"><i class="fa fa-check"></i><b>6.1</b> Experimentos factorial p x q</a></li>
+<li class="chapter" data-level="6.2" data-path="introducción-a-los-experimentos-factoriales.html"><a href="introducción-a-los-experimentos-factoriales.html#actividad-5"><i class="fa fa-check"></i><b>6.2</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="presentación-1.html"><a href="presentación-1.html"><i class="fa fa-check"></i>Presentación</a><ul>
+<li class="chapter" data-level="6.3" data-path="presentación-1.html"><a href="presentación-1.html#qué-es-el-método-científico-1"><i class="fa fa-check"></i><b>6.3</b> ¿Qué es el método científico?</a><ul>
+<li><a href="presentación-1.html#actividad-6"><em>ACTIVIDAD</em></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="presentación-1.html"><a href="presentación-1.html#estudio-de-diseño-observacional-o-estudio-de-diseño-experimental-1"><i class="fa fa-check"></i><b>6.4</b> ¿Estudio de diseño observacional o estudio de diseño experimental?</a></li>
+<li class="chapter" data-level="6.5" data-path="presentación-1.html"><a href="presentación-1.html#breve-historia-de-los-diseño-de-experimentos-1"><i class="fa fa-check"></i><b>6.5</b> Breve historia de los diseño de experimentos</a></li>
+<li class="chapter" data-level="6.6" data-path="presentación-1.html"><a href="presentación-1.html#principios-básicos-de-los-diseños-experimentales-1"><i class="fa fa-check"></i><b>6.6</b> Principios básicos de los diseños experimentales</a></li>
+<li class="chapter" data-level="6.7" data-path="presentación-1.html"><a href="presentación-1.html#pasos-para-planear-conducir-y-analizar-un-experimento-1"><i class="fa fa-check"></i><b>6.7</b> Pasos para planear, conducir y analizar un experimento</a></li>
+<li class="chapter" data-level="6.8" data-path="presentación-1.html"><a href="presentación-1.html#elementos-básicos-1"><i class="fa fa-check"></i><b>6.8</b> Elementos básicos</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="presentación-1.html"><a href="presentación-1.html#unidad-experimental-1"><i class="fa fa-check"></i><b>6.8.1</b> Unidad experimental</a></li>
+<li class="chapter" data-level="6.8.2" data-path="presentación-1.html"><a href="presentación-1.html#error-experimental-1"><i class="fa fa-check"></i><b>6.8.2</b> Error experimental</a></li>
+<li class="chapter" data-level="6.8.3" data-path="presentación-1.html"><a href="presentación-1.html#factor-1"><i class="fa fa-check"></i><b>6.8.3</b> Factor</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="presentación-1.html"><a href="presentación-1.html#prueba-t-para-dos-muestras-independientes-1"><i class="fa fa-check"></i><b>6.9</b> Prueba t para dos muestras independientes</a></li>
+<li class="chapter" data-level="6.10" data-path="presentación-1.html"><a href="presentación-1.html#ejemplo-motivación-y-creatividad.-un-experimento-aleatorizado-1"><i class="fa fa-check"></i><b>6.10</b> Ejemplo: Motivación y creatividad. Un experimento aleatorizado</a></li>
+<li class="chapter" data-level="6.11" data-path="presentación-1.html"><a href="presentación-1.html#sobre-los-supuestos-1"><i class="fa fa-check"></i><b>6.11</b> Sobre los supuestos:</a></li>
+<li class="chapter" data-level="6.12" data-path="presentación-1.html"><a href="presentación-1.html#actividad-7"><i class="fa fa-check"></i><b>6.12</b> Actividad</a></li>
+<li class="chapter" data-level="6.13" data-path="presentación-1.html"><a href="presentación-1.html#plan-de-diseño-3"><i class="fa fa-check"></i><b>6.13</b> Plan de diseño</a></li>
+<li class="chapter" data-level="6.14" data-path="presentación-1.html"><a href="presentación-1.html#análisis-de-varianza-3"><i class="fa fa-check"></i><b>6.14</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="6.15" data-path="presentación-1.html"><a href="presentación-1.html#prueba-de-comparaciones-por-pares-1"><i class="fa fa-check"></i><b>6.15</b> Prueba de Comparaciones por pares</a></li>
+<li class="chapter" data-level="6.16" data-path="presentación-1.html"><a href="presentación-1.html#prueba-de-comparaciones-múltiples-1"><i class="fa fa-check"></i><b>6.16</b> Prueba de comparaciones Múltiples</a><ul>
+<li class="chapter" data-level="6.16.1" data-path="presentación-1.html"><a href="presentación-1.html#diferencia-mínima-significativadls-1"><i class="fa fa-check"></i><b>6.16.1</b> Diferencia Mínima Significativa(DLS)</a></li>
+<li class="chapter" data-level="6.16.2" data-path="presentación-1.html"><a href="presentación-1.html#prueba-de-tukey-para-post-hoc-comparaciones-de-pares-de-tratamientos-1"><i class="fa fa-check"></i><b>6.16.2</b> Prueba de Tukey para <em>post-hoc</em> comparaciones de pares de tratamientos</a></li>
+<li class="chapter" data-level="6.16.3" data-path="presentación-1.html"><a href="presentación-1.html#prueba-de-dunnett-para-comparar-cada-uno-de-los-tratamientos-a-un-control-1"><i class="fa fa-check"></i><b>6.16.3</b> Prueba de Dunnett para comparar cada uno de los tratamientos a un control</a></li>
+<li class="chapter" data-level="6.16.4" data-path="presentación-1.html"><a href="presentación-1.html#pruebas-de-duncan-1"><i class="fa fa-check"></i><b>6.16.4</b> Pruebas de Duncan</a></li>
+<li class="chapter" data-level="6.16.5" data-path="presentación-1.html"><a href="presentación-1.html#pruebas-de-significación-de-contrastes-para-comparaciones-pre-planeadas-1"><i class="fa fa-check"></i><b>6.16.5</b> Pruebas de significación de contrastes para comparaciones pre-planeadas</a></li>
+</ul></li>
+<li class="chapter" data-level="6.17" data-path="presentación-1.html"><a href="presentación-1.html#actividad-8"><i class="fa fa-check"></i><b>6.17</b> Actividad</a></li>
+<li class="chapter" data-level="6.18" data-path="presentación-1.html"><a href="presentación-1.html#plan-de-diseño-4"><i class="fa fa-check"></i><b>6.18</b> Plan de diseño</a></li>
+<li class="chapter" data-level="6.19" data-path="presentación-1.html"><a href="presentación-1.html#análisis-de-varianza-4"><i class="fa fa-check"></i><b>6.19</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="6.20" data-path="presentación-1.html"><a href="presentación-1.html#actividad-9"><i class="fa fa-check"></i><b>6.20</b> Actividad</a></li>
+<li class="chapter" data-level="6.21" data-path="presentación-1.html"><a href="presentación-1.html#plan-de-diseño-5"><i class="fa fa-check"></i><b>6.21</b> Plan de diseño</a></li>
+<li class="chapter" data-level="6.22" data-path="presentación-1.html"><a href="presentación-1.html#análisis-de-varianza-5"><i class="fa fa-check"></i><b>6.22</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="6.23" data-path="presentación-1.html"><a href="presentación-1.html#actividad-10"><i class="fa fa-check"></i><b>6.23</b> Actividad</a></li>
+<li class="chapter" data-level="6.24" data-path="presentación-1.html"><a href="presentación-1.html#experimentos-factorial-p-x-q-1"><i class="fa fa-check"></i><b>6.24</b> Experimentos factorial p x q</a></li>
+<li class="chapter" data-level="6.25" data-path="presentación-1.html"><a href="presentación-1.html#actividad-11"><i class="fa fa-check"></i><b>6.25</b> Actividad</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción a los Diseños Experimentales con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="diseño-completamente-al-azar" class="section level1">
+<h1><span class="header-section-number">Capítulo 3</span> Diseño Completamente al Azar</h1>
+<p>En esta sección se tiene por objetivos:</p>
+<ul>
+<li>Diseñar un plan para DCA</li>
+<li>Ejecutar el análisis de varianza y evaluación de supuestos</li>
+<li>Realizar pruebas de comparaciones</li>
+</ul>
+<div id="plan-de-diseño" class="section level2">
+<h2><span class="header-section-number">3.1</span> Plan de diseño</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargando paquetes</span>
+<span class="kw">library</span>(agricolae)
+tratam &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>)
+repeticion &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">4</span>)
+outdesign &lt;-<span class="st"> </span><span class="kw">design.crd</span>(tratam,<span class="dt">r=</span>repeticion,<span class="dt">seed=</span><span class="dv">777</span>,<span class="dt">serie=</span><span class="dv">0</span>)
+book1 &lt;-<span class="st"> </span>outdesign<span class="op">$</span>book
+<span class="kw">print</span>(book1)</code></pre></div>
+<pre><code>##    plots r tratam
+## 1      1 1      C
+## 2      2 1      A
+## 3      3 1      B
+## 4      4 2      A
+## 5      5 3      A
+## 6      6 2      C
+## 7      7 3      C
+## 8      8 2      B
+## 9      9 4      C
+## 10    10 3      B
+## 11    11 4      A</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(book1,<span class="st">&quot;plan1.csv&quot;</span>,<span class="dt">row.names=</span><span class="ot">FALSE</span>)</code></pre></div>
+</div>
+<div id="análisis-de-varianza" class="section level2">
+<h2><span class="header-section-number">3.2</span> Análisis de Varianza</h2>
+<p>En el diseño experimental de una sola clasificación, o de una sola vía, las unidades experimentales se considera que provienen de una misma población, con media <span class="math inline">\(\mu\)</span>, y <span class="math inline">\(\sigma^2\)</span>, luego de la asignación aleatoria de los <span class="math inline">\(t\)</span> tratamientos en <span class="math inline">\(r\)</span> unidades experimentales cada uno, las unidades experimentales se consideran que provienen de sub-poblaciones con medía <span class="math inline">\(\mu_i\)</span> y varianza común <span class="math inline">\(\sigma^2\)</span>, siendo la media de la i-ésima subpoblación, <span class="math inline">\(\mu_i=\mu +\tau_i\)</span>, igual a la media general más el efecto del i-ésimo tratamiento <span class="math inline">\(\tau_i\)</span>.</p>
+<p>El modelo aditivo lineal: <span class="math display">\[y_{ij}=\mu + \tau_i+\epsilon_{ij}\]</span> Las suposiciones básicas:</p>
+<ul>
+<li><p>Independencia, las unidades experimentales deben elegirse aleatoriamente, las mediciones realizadas en tales unidades experimentales deben ser independientes entre sí.</p></li>
+<li><p>Homogeneidad de varianzas, las varianzas de las mediciones realizadas dentro de cada tratamiento deben ser iguales entre sí, e iguales a una varianza común <span class="math inline">\(\sigma^2\)</span>.</p></li>
+<li><p>Normalidad, las mediciones deben distribuirse normalmente.</p></li>
+</ul>
+<p>Los tratamientos se pueden considerar como:</p>
+<ul>
+<li><p>Efectos fijos (FIJO), si tan sólo interesa cuantificar los efectos de los tratamientos seleccionados para el experimento y comparar entre sí tales efectos. El investigador elige los tratamientos a estudiar.</p></li>
+<li><p>Efectos al azar (ALEATORIO), si los tratamientos estudiados representan una muestra aleatoria de los distintos tratamientos de interés para el investigador; interesa conocer la variabilidad presente entre los distintos efectos de tratamientos. El investigador tiene control parcial sobre qué tratamientos participarán en el experimento.</p></li>
+</ul>
+<p>Para el Modelo I o de efectos Fijos, la hipótesis a probar es:<br />
+<span class="math inline">\(H_0:\mu_1=\mu_2=... =\mu_t=\mu\)</span><br />
+<span class="math inline">\(H_1:\)</span>al menos un <span class="math inline">\(\mu_i \neq \mu\)</span></p>
+<p><em>Ejemplo:</em></p>
+<p>Un fisiólogo de animales estudió la función pituitaria de las gallinas, bajo el régimen estándar de muda de pluma forzada que usan los productores de huevo para mantenerlas en producción. Se usaron 25 gallinas en el estudio. Cinco gallinas se sacrificaron para las mediciones cada vez, una previa al régimen de muda forzada, y al final de cada una de las cuatro etapas del régimen. Las cinco condiciones experimentales (tratamientos) corresponden a: 1) premuda (control), 2) ayuno de 8 días, 3) 60 gramos de salvado al día durante 10 días, 4) 80 gramos de salvado al día durante 10 días y 5) mezcla de malta durante 42 días. El objetivo era monitorear las respuestas fisiológicas asociadas con la función pituitaria de las gallinas durante el régimen para explicar por qué vuelven a producir después de la muda forzada. Uno de los compuestos medidos fue la concentración de suero T3. Los datos de la tabla son las medidas de suero T3 en las cinco gallinas sacrificadas al final de cada etapa del régimen.<br />
+(Ejercicio 2.3 tomado del libro Diseños de Experimentos de R. Kuehl)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargando datos:</span>
+<span class="kw">library</span>(mosaic)
+datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;kuehl2.3.txt&quot;</span>,<span class="dt">header=</span>T)
+<span class="kw">summary</span>(datos)</code></pre></div>
+<pre><code>##       trat      serum.T3     
+##  Min.   :1   Min.   : 73.56  
+##  1st Qu.:2   1st Qu.: 90.45  
+##  Median :3   Median :102.93  
+##  Mean   :3   Mean   :120.81  
+##  3rd Qu.:4   3rd Qu.:119.92  
+##  Max.   :5   Max.   :226.05</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(serum.T3 <span class="op">~</span><span class="st"> </span>trat, <span class="dt">data =</span> datos)</code></pre></div>
+<pre><code>##   trat    min     Q1 median     Q3    max    mean        sd n missing
+## 1    1  73.56  74.39  90.45  94.09  99.38  86.374 11.759266 5       0
+## 2    2  98.81 103.55 115.23 117.61 129.06 112.852 11.986426 5       0
+## 3    3 177.50 197.18 207.31 222.74 226.05 206.156 19.835996 5       0
+## 4    4 101.10 102.93 112.01 117.51 119.92 110.694  8.450345 5       0
+## 5    5  82.94  83.14  87.76  89.59  96.43  87.972  5.542334 5       0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datos<span class="op">$</span>trat&lt;-<span class="kw">as.factor</span>(datos<span class="op">$</span>trat)
+<span class="kw">anova</span>(<span class="kw">lm</span>(serum.T3<span class="op">~</span>trat,datos))</code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: serum.T3
+##           Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## trat       4  48569 12142.2   78.08 6.482e-12 ***
+## Residuals 20   3110   155.5                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">lm</span>(serum.T3<span class="op">~</span>trat,datos))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = serum.T3 ~ trat, data = datos)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -28.656  -8.976   1.316   7.716  19.894 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   86.374      5.577  15.488 1.33e-12 ***
+## trat2         26.478      7.887   3.357  0.00314 ** 
+## trat3        119.782      7.887  15.187 1.91e-12 ***
+## trat4         24.320      7.887   3.084  0.00586 ** 
+## trat5          1.598      7.887   0.203  0.84148    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 12.47 on 20 degrees of freedom
+## Multiple R-squared:  0.9398, Adjusted R-squared:  0.9278 
+## F-statistic: 78.08 on 4 and 20 DF,  p-value: 6.482e-12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(<span class="kw">lm</span>(serum.T3<span class="op">~</span>trat,datos))</code></pre></div>
+<p><img src="Introducci%C3%B3n-a-los-dise%C3%B1os-experimentales-con-R_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">residuales&lt;-<span class="kw">residuals</span>(<span class="kw">lm</span>(serum.T3<span class="op">~</span>trat,datos))
+datos&lt;-<span class="kw">cbind</span>(datos,<span class="kw">as.data.frame</span>(residuales))
+<span class="kw">library</span>(nortest)
+<span class="kw">ad.test</span>(residuales)</code></pre></div>
+<pre><code>## 
+##  Anderson-Darling normality test
+## 
+## data:  residuales
+## A = 0.22491, p-value = 0.7998</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#library(car)</span>
+<span class="co">#leveneTest(serum.T3~trat,datos)</span></code></pre></div>
+</div>
+<div id="prueba-de-comparaciones-por-pares" class="section level2">
+<h2><span class="header-section-number">3.3</span> Prueba de Comparaciones por pares</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairwise.t.test</span>(datos<span class="op">$</span>serum.T3,datos<span class="op">$</span>trat,<span class="dt">p.adjust.method=</span><span class="st">&quot;none&quot;</span>)</code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  datos$serum.T3 and datos$trat 
+## 
+##   1       2       3       4     
+## 2 0.0031  -       -       -     
+## 3 1.9e-12 1.7e-10 -       -     
+## 4 0.0059  0.7872  1.2e-10 -     
+## 5 0.8415  0.0050  2.5e-12 0.0092
+## 
+## P value adjustment method: none</code></pre>
+</div>
+<div id="prueba-de-comparaciones-múltiples" class="section level2">
+<h2><span class="header-section-number">3.4</span> Prueba de comparaciones Múltiples</h2>
+<p>Buscan controlar la probabilidad de cometer el error Tipo I a nivel del experimento, cuando se realizan comparaciones entre las medias de tres o más tratamientos. Entre las procedimientos de comparaciones múltiples tenemos:</p>
+<div id="diferencia-mínima-significativadls" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Diferencia Mínima Significativa(DLS)</h3>
+<p>Se basa en la prueba de t para pares de medias. Se recomienda realizar la prueba tan sólo si la prueba F del Análisis de Varianza resulta significativa. Si el número de comparaciones es muy grande se recomienda utilizar la corrección de Bonferroni y utilizar el nivel de significación <span class="math inline">\(\alpha/k\)</span>, donde <span class="math inline">\(k=\frac{t(t-1)}{2}\)</span>; de esta manera, el nivel de significación del conjunto de comparaciones (nivel de significación del experimento) es <span class="math inline">\(\alpha\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairwise.t.test</span>(datos<span class="op">$</span>serum.T3,datos<span class="op">$</span>trat, <span class="dt">p.adjust.method =</span> <span class="st">&quot;bonf&quot;</span>)</code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  datos$serum.T3 and datos$trat 
+## 
+##   1       2       3       4    
+## 2 0.031   -       -       -    
+## 3 1.9e-11 1.7e-09 -       -    
+## 4 0.059   1.000   1.2e-09 -    
+## 5 1.000   0.050   2.5e-11 0.092
+## 
+## P value adjustment method: bonferroni</code></pre>
+</div>
+<div id="prueba-de-tukey-para-post-hoc-comparaciones-de-pares-de-tratamientos" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Prueba de Tukey para <em>post-hoc</em> comparaciones de pares de tratamientos</h3>
+<p>Se basa en la diferencia estudiantizada, para probar la hipótesis nula <span class="math inline">\(H_0:\mu_i=\mu_j\)</span> versus la alternativa hipótesis <span class="math inline">\(H_0:\mu_i\neq\mu_j\)</span> ,para todo <span class="math inline">\(i,j=1,2,...t\)</span>, a un nivel de significación <span class="math inline">\(\alpha\)</span> se le conoce como prueba de la Diferencia Honestamente Significativa (DHS), ejerce control sobre el nivel de significación del experimento cuando el número de repeticiones es el mismo en cada tratamiento. Esta prueba requiere que las medias de los tratamientos no estén correlacionadas y tengan igual varianzas, es decir, el número de repeticiones de cada tratamiento debe ser el mismo. Mantiene el nivel de significación del experimento al nivel determinado, pero en cambio resulta con menor potencia, siendo una prueba de significación conservadora.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(serum.T3<span class="op">~</span>trat,datos))</code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = serum.T3 ~ trat, data = datos)
+## 
+## $trat
+##         diff         lwr        upr     p adj
+## 2-1   26.478    2.877329  50.078671 0.0232343
+## 3-1  119.782   96.181329 143.382671 0.0000000
+## 4-1   24.320    0.719329  47.920671 0.0414321
+## 5-1    1.598  -22.002671  25.198671 0.9995895
+## 3-2   93.304   69.703329 116.904671 0.0000000
+## 4-2   -2.158  -25.758671  21.442671 0.9986602
+## 5-2  -24.880  -48.480671  -1.279329 0.0357276
+## 4-3  -95.462 -119.062671 -71.861329 0.0000000
+## 5-3 -118.184 -141.784671 -94.583329 0.0000000
+## 5-4  -22.722  -46.322671   0.878671 0.0626613</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(multcomp)
+model&lt;-<span class="kw">aov</span>(<span class="dt">formula =</span> serum.T3 <span class="op">~</span><span class="st"> </span>trat, <span class="dt">data =</span> datos)
+compTukey&lt;-<span class="st"> </span><span class="kw">confint</span>(<span class="kw">glht</span>(model, <span class="dt">linfct =</span> <span class="kw">mcp</span>(<span class="dt">trat =</span> <span class="st">&quot;Tukey&quot;</span>)))
+<span class="kw">summary</span>(compTukey)</code></pre></div>
+<pre><code>## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Multiple Comparisons of Means: Tukey Contrasts
+## 
+## 
+## Fit: aov(formula = serum.T3 ~ trat, data = datos)
+## 
+## Linear Hypotheses:
+##            Estimate Std. Error t value Pr(&gt;|t|)    
+## 2 - 1 == 0   26.478      7.887   3.357   0.0232 *  
+## 3 - 1 == 0  119.782      7.887  15.187   &lt;0.001 ***
+## 4 - 1 == 0   24.320      7.887   3.084   0.0414 *  
+## 5 - 1 == 0    1.598      7.887   0.203   0.9996    
+## 3 - 2 == 0   93.304      7.887  11.830   &lt;0.001 ***
+## 4 - 2 == 0   -2.158      7.887  -0.274   0.9987    
+## 5 - 2 == 0  -24.880      7.887  -3.155   0.0357 *  
+## 4 - 3 == 0  -95.462      7.887 -12.104   &lt;0.001 ***
+## 5 - 3 == 0 -118.184      7.887 -14.985   &lt;0.001 ***
+## 5 - 4 == 0  -22.722      7.887  -2.881   0.0626 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## (Adjusted p values reported -- single-step method)</code></pre>
+</div>
+<div id="prueba-de-dunnett-para-comparar-cada-uno-de-los-tratamientos-a-un-control" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Prueba de Dunnett para comparar cada uno de los tratamientos a un control</h3>
+<p>Se utiliza cuando las comparaciones de interés (a priori) son entre un conjunto de (t–1) medias de tratamientos no correlacionadas y un control. Se obtiene mayor potencia mediante el uso de un método de comparación que se restringe a comparar cada tratamiento con el control. La prueba de Dunnett controla el Error Tipo I de las comparaciones individuales y mantiene el nivel de significación del experimento al nivel <span class="math inline">\(\alpha\)</span> determinado.</p>
+<p>En el ejemplo asumiendo que premuda es el control</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(multcomp)
+ni&lt;-<span class="kw">tapply</span>(datos<span class="op">$</span>serum.T3,datos<span class="op">$</span>trat,length)
+contr&lt;-<span class="kw">contrMat</span>(ni,<span class="dt">type=</span><span class="st">&quot;Dunnet&quot;</span>)
+model&lt;-<span class="kw">aov</span>(<span class="dt">formula =</span> serum.T3 <span class="op">~</span><span class="st"> </span>trat, <span class="dt">data =</span> datos)
+compDunnet&lt;-<span class="st"> </span><span class="kw">confint</span> (<span class="kw">glht</span>(model, <span class="dt">linfct =</span> <span class="kw">mcp</span>(<span class="dt">trat =</span> contr)))
+compDunnet</code></pre></div>
+<pre><code>## 
+##   Simultaneous Confidence Intervals
+## 
+## Multiple Comparisons of Means: User-defined Contrasts
+## 
+## 
+## Fit: aov(formula = serum.T3 ~ trat, data = datos)
+## 
+## Quantile = 2.65
+## 95% family-wise confidence level
+##  
+## 
+## Linear Hypotheses:
+##            Estimate lwr      upr     
+## 2 - 1 == 0  26.4780   5.5775  47.3785
+## 3 - 1 == 0 119.7820  98.8815 140.6825
+## 4 - 1 == 0  24.3200   3.4195  45.2205
+## 5 - 1 == 0   1.5980 -19.3025  22.4985</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(compDunnet)</code></pre></div>
+<pre><code>## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Multiple Comparisons of Means: User-defined Contrasts
+## 
+## 
+## Fit: aov(formula = serum.T3 ~ trat, data = datos)
+## 
+## Linear Hypotheses:
+##            Estimate Std. Error t value Pr(&gt;|t|)    
+## 2 - 1 == 0   26.478      7.887   3.357   0.0110 *  
+## 3 - 1 == 0  119.782      7.887  15.187   &lt;0.001 ***
+## 4 - 1 == 0   24.320      7.887   3.084   0.0199 *  
+## 5 - 1 == 0    1.598      7.887   0.203   0.9987    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## (Adjusted p values reported -- single-step method)</code></pre>
+</div>
+<div id="pruebas-de-duncan" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Pruebas de Duncan</h3>
+<p>El contraste de Duncan utiliza, como el HSD de Tukey, la distribución del recorrido estudentizado. Se diferencia de ese test en que su aplicación es secuencial, en el sentido de no utilizar un único valor crítico para todas las diferencias de medias, como el de Tukey, sino un valor crítico que depende del número de medias comprendido entre las dos medias que se comparan, habiendo ordenado previamente las medias en orden creciente.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(agricolae)
+model&lt;-<span class="kw">aov</span>(<span class="dt">formula =</span> serum.T3 <span class="op">~</span><span class="st"> </span>trat, <span class="dt">data =</span> datos)
+<span class="kw">duncan.test</span>(model,<span class="st">&quot;trat&quot;</span>,<span class="dt">console=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+## Study: model ~ &quot;trat&quot;
+## 
+## Duncan&#39;s new multiple range test
+## for serum.T3 
+## 
+## Mean Square Error:  155.5095 
+## 
+## trat,  means
+## 
+##   serum.T3       std r    Min    Max
+## 1   86.374 11.759266 5  73.56  99.38
+## 2  112.852 11.986426 5  98.81 129.06
+## 3  206.156 19.835996 5 177.50 226.05
+## 4  110.694  8.450345 5 101.10 119.92
+## 5   87.972  5.542334 5  82.94  96.43
+## 
+## Alpha: 0.05 ; DF Error: 20 
+## 
+## Critical Range
+##        2        3        4        5 
+## 16.45186 17.26893 17.78819 18.15087 
+## 
+## Means with the same letter are not significantly different.
+## 
+##   serum.T3 groups
+## 3  206.156      a
+## 2  112.852      b
+## 4  110.694      b
+## 5   87.972      c
+## 1   86.374      c</code></pre>
+</div>
+<div id="pruebas-de-significación-de-contrastes-para-comparaciones-pre-planeadas" class="section level3">
+<h3><span class="header-section-number">3.4.5</span> Pruebas de significación de contrastes para comparaciones pre-planeadas</h3>
+<p>Al planear un experimento, los tratamientos se seleccionan de tal manera que comparaciones entre ellos permitan responder a las interrogantes que suscitaron la realización del experimento. Estas comparaciones pre-planeadas se pueden analizar mediante contrastes. Un contraste corresponde a una función lineal de las medias de tratamientos, definida por una determinada comparación de interés. <span class="math display">\[C=\sum_{i=1}^{t}{C_i\mu_i}\]</span> tal que: <span class="math inline">\(\sum{c_i=0}\)</span> para el caso balanceado.<br />
+Se puede utilizar una prueba de F para probar la hipótesis nula de que el contraste <span class="math inline">\(C\)</span> es igual a cero, <span class="math inline">\(H_0: C = 0\)</span> versus la hipótesis alternativa <span class="math inline">\(H_1:C\neq0\)</span> a un nivel de significación <span class="math inline">\(\alpha\)</span>.</p>
+<p>En el ejemplo suponga que se quiere probar smultáneamente:<br />
+<span class="math display">\[H_0:\mu_1=\mu_3
+\\ \mu_1+\mu_3 =\mu_4+\mu_5
+\\ \mu_4=\mu_5
+\\ 4\mu_2=\mu_1+\mu_3+\mu_4+\mu_5\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(multcomp)
+model&lt;-<span class="kw">aov</span>(<span class="dt">formula =</span> serum.T3 <span class="op">~</span><span class="st"> </span>trat, <span class="dt">data =</span> datos)
+K &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="st">&quot;1 vs 3&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),
+<span class="st">&quot;1,3 vs 4,5&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),
+<span class="st">&quot;4 vs 5&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>),
+<span class="st">&quot;2 vs 1,3,4,5&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">4</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>))
+comp &lt;-<span class="st"> </span><span class="kw">glht</span>(model,<span class="dt">linfct =</span> <span class="kw">mcp</span>(<span class="dt">trat=</span>K),<span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)
+<span class="kw">summary</span>(comp)</code></pre></div>
+<pre><code>## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Multiple Comparisons of Means: User-defined Contrasts
+## 
+## 
+## Fit: aov(formula = serum.T3 ~ trat, data = datos)
+## 
+## Linear Hypotheses:
+##                   Estimate Std. Error t value Pr(&gt;|t|)    
+## 1 vs 3 == 0       -119.782      7.887 -15.187   &lt;1e-04 ***
+## 1,3 vs 4,5 == 0    -93.864     11.154  -8.415   &lt;1e-04 ***
+## 4 vs 5 == 0         22.722      7.887   2.881   0.0354 *  
+## 2 vs 1,3,4,5 == 0  -39.788     24.941  -1.595   0.4012    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## (Adjusted p values reported -- single-step method)</code></pre>
+</div>
+</div>
+<div id="actividad-2" class="section level2">
+<h2><span class="header-section-number">3.5</span> Actividad</h2>
+<p>Una serie de estudios, que involucran varias especies de animales, hallaron que la restricción de ingesta calórica puede incrementar dramáticamente la esperanza de vida. En uno de tales estudios en ratones hembras fueron asignados aleatoriamente a uno de los seis grupos de tratamientos siguientes:</p>
+<ul>
+<li>Grupo NP: los ratones comían tanto como quisiera de una dieta estándar de laboratorio.</li>
+<li>Grupo N/N85: este grupo fue alimentado normalmente antes y después del destete. Después del destete la ración fue controlada a 85kcl/wk. Este grupo además del grupo NP, sirve como control pues la ingesta de calorías es razonablemente constante.</li>
+<li>Grupo N/R50: este grupo fue alimentado con una dieta normal antes del destete y una dieta reducida en calorías de 50 kcal/wk después del destete.</li>
+<li>Grupo R/R50: este grupo fue alimentado con una dieta reducida en calorías de 50 kcal/wk antes y después del destete.</li>
+<li>Grupo N/R50 lopro: este grupo fue alimentado con una dieta normal antes del destete, con una dieta reducida en calorías de 50 kcal/wk después del destete y con un contenido proteico que disminuía con la edad.</li>
+<li>Grupo N/R40: este grupo fue alimentado con una dieta normal antes del destete y con una dieta drásticamente reducida en calorías de 40 kcal/wk después del destete</li>
+</ul>
+<p>Los datos (case0501) se descargan desde la librería “Sleuth2”.</p>
+<p>Realice el análisis correspondientes</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="experimentos-simples-comparativos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="diseño-en-bloque-completamente-al-azar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-method.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introducción a los diseños experimentales con R.pdf", "Introducción a los diseños experimentales con R.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

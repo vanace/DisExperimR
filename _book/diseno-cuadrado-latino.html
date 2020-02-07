@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 5 Diseño Cuadrado Latino | Introducción a los Diseños Experimentales con R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 5 Diseño Cuadrado Latino | Introducción a los Diseños Experimentales con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 5 Diseño Cuadrado Latino | Introducción a los Diseños Experimentales con R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Ana Vargas   e-mail:anavargas@lamolina.edu.pe" />
+
+
+<meta name="date" content="2020-02-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="diseno-en-bloque-completamente-al-azar.html">
+<link rel="next" href="introduccion-a-los-experimentos-factoriales.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introducción a los diseños Experimentales con R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#que-es-el-metodo-cientifico"><i class="fa fa-check"></i><b>1.1</b> ¿Qué es el método científico?</a><ul>
+<li><a href="intro.html#actividad"><em>ACTIVIDAD</em></a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#estudio-de-diseno-observacional-o-estudio-de-diseno-experimental"><i class="fa fa-check"></i><b>1.2</b> ¿Estudio de diseño observacional o estudio de diseño experimental?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#breve-historia-de-los-diseno-de-experimentos"><i class="fa fa-check"></i><b>1.3</b> Breve historia de los diseño de experimentos</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#principios-basicos-de-los-disenos-experimentales"><i class="fa fa-check"></i><b>1.4</b> Principios básicos de los diseños experimentales</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#pasos-para-planear-conducir-y-analizar-un-experimento"><i class="fa fa-check"></i><b>1.5</b> Pasos para planear, conducir y analizar un experimento</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#elementos-basicos"><i class="fa fa-check"></i><b>1.6</b> Elementos básicos</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="intro.html"><a href="intro.html#unidad-experimental"><i class="fa fa-check"></i><b>1.6.1</b> Unidad experimental</a></li>
+<li class="chapter" data-level="1.6.2" data-path="intro.html"><a href="intro.html#error-experimental"><i class="fa fa-check"></i><b>1.6.2</b> Error experimental</a></li>
+<li class="chapter" data-level="1.6.3" data-path="intro.html"><a href="intro.html#factor"><i class="fa fa-check"></i><b>1.6.3</b> Factor</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="experimentos-simples-comparativos.html"><a href="experimentos-simples-comparativos.html"><i class="fa fa-check"></i><b>2</b> Experimentos simples comparativos</a><ul>
+<li class="chapter" data-level="2.1" data-path="experimentos-simples-comparativos.html"><a href="experimentos-simples-comparativos.html#prueba-t-para-dos-muestras-independientes"><i class="fa fa-check"></i><b>2.1</b> Prueba t para dos muestras independientes</a></li>
+<li class="chapter" data-level="2.2" data-path="experimentos-simples-comparativos.html"><a href="experimentos-simples-comparativos.html#ejemplo-motivacion-y-creatividad.-un-experimento-aleatorizado"><i class="fa fa-check"></i><b>2.2</b> Ejemplo: Motivación y creatividad. Un experimento aleatorizado</a></li>
+<li class="chapter" data-level="2.3" data-path="experimentos-simples-comparativos.html"><a href="experimentos-simples-comparativos.html#sobre-los-supuestos"><i class="fa fa-check"></i><b>2.3</b> Sobre los supuestos:</a></li>
+<li class="chapter" data-level="2.4" data-path="experimentos-simples-comparativos.html"><a href="experimentos-simples-comparativos.html#actividad-1"><i class="fa fa-check"></i><b>2.4</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html"><i class="fa fa-check"></i><b>3</b> Diseño Completamente al Azar</a><ul>
+<li class="chapter" data-level="3.1" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html#plan-de-diseno"><i class="fa fa-check"></i><b>3.1</b> Plan de diseño</a></li>
+<li class="chapter" data-level="3.2" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html#analisis-de-varianza"><i class="fa fa-check"></i><b>3.2</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="3.3" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html#prueba-de-comparaciones-por-pares"><i class="fa fa-check"></i><b>3.3</b> Prueba de Comparaciones por pares</a></li>
+<li class="chapter" data-level="3.4" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html#prueba-de-comparaciones-multiples"><i class="fa fa-check"></i><b>3.4</b> Prueba de comparaciones Múltiples</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html#diferencia-minima-significativadls"><i class="fa fa-check"></i><b>3.4.1</b> Diferencia Mínima Significativa(DLS)</a></li>
+<li class="chapter" data-level="3.4.2" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html#prueba-de-tukey-para-post-hoc-comparaciones-de-pares-de-tratamientos"><i class="fa fa-check"></i><b>3.4.2</b> Prueba de Tukey para <em>post-hoc</em> comparaciones de pares de tratamientos</a></li>
+<li class="chapter" data-level="3.4.3" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html#prueba-de-dunnett-para-comparar-cada-uno-de-los-tratamientos-a-un-control"><i class="fa fa-check"></i><b>3.4.3</b> Prueba de Dunnett para comparar cada uno de los tratamientos a un control</a></li>
+<li class="chapter" data-level="3.4.4" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html#pruebas-de-duncan"><i class="fa fa-check"></i><b>3.4.4</b> Pruebas de Duncan</a></li>
+<li class="chapter" data-level="3.4.5" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html#pruebas-de-significacion-de-contrastes-para-comparaciones-pre-planeadas"><i class="fa fa-check"></i><b>3.4.5</b> Pruebas de significación de contrastes para comparaciones pre-planeadas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="diseno-completamente-al-azar.html"><a href="diseno-completamente-al-azar.html#actividad-2"><i class="fa fa-check"></i><b>3.5</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="diseno-en-bloque-completamente-al-azar.html"><a href="diseno-en-bloque-completamente-al-azar.html"><i class="fa fa-check"></i><b>4</b> Diseño en Bloque Completamente al Azar</a><ul>
+<li class="chapter" data-level="4.1" data-path="diseno-en-bloque-completamente-al-azar.html"><a href="diseno-en-bloque-completamente-al-azar.html#plan-de-diseno-1"><i class="fa fa-check"></i><b>4.1</b> Plan de diseño</a></li>
+<li class="chapter" data-level="4.2" data-path="diseno-en-bloque-completamente-al-azar.html"><a href="diseno-en-bloque-completamente-al-azar.html#analisis-de-varianza-1"><i class="fa fa-check"></i><b>4.2</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="4.3" data-path="diseno-en-bloque-completamente-al-azar.html"><a href="diseno-en-bloque-completamente-al-azar.html#actividad-3"><i class="fa fa-check"></i><b>4.3</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="diseno-cuadrado-latino.html"><a href="diseno-cuadrado-latino.html"><i class="fa fa-check"></i><b>5</b> Diseño Cuadrado Latino</a><ul>
+<li class="chapter" data-level="5.1" data-path="diseno-cuadrado-latino.html"><a href="diseno-cuadrado-latino.html#plan-de-diseno-2"><i class="fa fa-check"></i><b>5.1</b> Plan de diseño</a></li>
+<li class="chapter" data-level="5.2" data-path="diseno-cuadrado-latino.html"><a href="diseno-cuadrado-latino.html#analisis-de-varianza-2"><i class="fa fa-check"></i><b>5.2</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="5.3" data-path="diseno-cuadrado-latino.html"><a href="diseno-cuadrado-latino.html#actividad-4"><i class="fa fa-check"></i><b>5.3</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introduccion-a-los-experimentos-factoriales.html"><a href="introduccion-a-los-experimentos-factoriales.html"><i class="fa fa-check"></i><b>6</b> Introducción a los Experimentos factoriales</a><ul>
+<li class="chapter" data-level="6.1" data-path="introduccion-a-los-experimentos-factoriales.html"><a href="introduccion-a-los-experimentos-factoriales.html#experimentos-factorial-p-x-q"><i class="fa fa-check"></i><b>6.1</b> Experimentos factorial p x q</a></li>
+<li class="chapter" data-level="6.2" data-path="introduccion-a-los-experimentos-factoriales.html"><a href="introduccion-a-los-experimentos-factoriales.html#actividad-5"><i class="fa fa-check"></i><b>6.2</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="presentacion-1.html"><a href="presentacion-1.html"><i class="fa fa-check"></i>Presentación</a><ul>
+<li class="chapter" data-level="6.3" data-path="presentacion-1.html"><a href="presentacion-1.html#que-es-el-metodo-cientifico-1"><i class="fa fa-check"></i><b>6.3</b> ¿Qué es el método científico?</a><ul>
+<li><a href="presentacion-1.html#actividad-6"><em>ACTIVIDAD</em></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="presentacion-1.html"><a href="presentacion-1.html#estudio-de-diseno-observacional-o-estudio-de-diseno-experimental-1"><i class="fa fa-check"></i><b>6.4</b> ¿Estudio de diseño observacional o estudio de diseño experimental?</a></li>
+<li class="chapter" data-level="6.5" data-path="presentacion-1.html"><a href="presentacion-1.html#breve-historia-de-los-diseno-de-experimentos-1"><i class="fa fa-check"></i><b>6.5</b> Breve historia de los diseño de experimentos</a></li>
+<li class="chapter" data-level="6.6" data-path="presentacion-1.html"><a href="presentacion-1.html#principios-basicos-de-los-disenos-experimentales-1"><i class="fa fa-check"></i><b>6.6</b> Principios básicos de los diseños experimentales</a></li>
+<li class="chapter" data-level="6.7" data-path="presentacion-1.html"><a href="presentacion-1.html#pasos-para-planear-conducir-y-analizar-un-experimento-1"><i class="fa fa-check"></i><b>6.7</b> Pasos para planear, conducir y analizar un experimento</a></li>
+<li class="chapter" data-level="6.8" data-path="presentacion-1.html"><a href="presentacion-1.html#elementos-basicos-1"><i class="fa fa-check"></i><b>6.8</b> Elementos básicos</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="presentacion-1.html"><a href="presentacion-1.html#unidad-experimental-1"><i class="fa fa-check"></i><b>6.8.1</b> Unidad experimental</a></li>
+<li class="chapter" data-level="6.8.2" data-path="presentacion-1.html"><a href="presentacion-1.html#error-experimental-1"><i class="fa fa-check"></i><b>6.8.2</b> Error experimental</a></li>
+<li class="chapter" data-level="6.8.3" data-path="presentacion-1.html"><a href="presentacion-1.html#factor-1"><i class="fa fa-check"></i><b>6.8.3</b> Factor</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="presentacion-1.html"><a href="presentacion-1.html#prueba-t-para-dos-muestras-independientes-1"><i class="fa fa-check"></i><b>6.9</b> Prueba t para dos muestras independientes</a></li>
+<li class="chapter" data-level="6.10" data-path="presentacion-1.html"><a href="presentacion-1.html#ejemplo-motivacion-y-creatividad.-un-experimento-aleatorizado-1"><i class="fa fa-check"></i><b>6.10</b> Ejemplo: Motivación y creatividad. Un experimento aleatorizado</a></li>
+<li class="chapter" data-level="6.11" data-path="presentacion-1.html"><a href="presentacion-1.html#sobre-los-supuestos-1"><i class="fa fa-check"></i><b>6.11</b> Sobre los supuestos:</a></li>
+<li class="chapter" data-level="6.12" data-path="presentacion-1.html"><a href="presentacion-1.html#actividad-7"><i class="fa fa-check"></i><b>6.12</b> Actividad</a></li>
+<li class="chapter" data-level="6.13" data-path="presentacion-1.html"><a href="presentacion-1.html#plan-de-diseno-3"><i class="fa fa-check"></i><b>6.13</b> Plan de diseño</a></li>
+<li class="chapter" data-level="6.14" data-path="presentacion-1.html"><a href="presentacion-1.html#analisis-de-varianza-3"><i class="fa fa-check"></i><b>6.14</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="6.15" data-path="presentacion-1.html"><a href="presentacion-1.html#prueba-de-comparaciones-por-pares-1"><i class="fa fa-check"></i><b>6.15</b> Prueba de Comparaciones por pares</a></li>
+<li class="chapter" data-level="6.16" data-path="presentacion-1.html"><a href="presentacion-1.html#prueba-de-comparaciones-multiples-1"><i class="fa fa-check"></i><b>6.16</b> Prueba de comparaciones Múltiples</a><ul>
+<li class="chapter" data-level="6.16.1" data-path="presentacion-1.html"><a href="presentacion-1.html#diferencia-minima-significativadls-1"><i class="fa fa-check"></i><b>6.16.1</b> Diferencia Mínima Significativa(DLS)</a></li>
+<li class="chapter" data-level="6.16.2" data-path="presentacion-1.html"><a href="presentacion-1.html#prueba-de-tukey-para-post-hoc-comparaciones-de-pares-de-tratamientos-1"><i class="fa fa-check"></i><b>6.16.2</b> Prueba de Tukey para <em>post-hoc</em> comparaciones de pares de tratamientos</a></li>
+<li class="chapter" data-level="6.16.3" data-path="presentacion-1.html"><a href="presentacion-1.html#prueba-de-dunnett-para-comparar-cada-uno-de-los-tratamientos-a-un-control-1"><i class="fa fa-check"></i><b>6.16.3</b> Prueba de Dunnett para comparar cada uno de los tratamientos a un control</a></li>
+<li class="chapter" data-level="6.16.4" data-path="presentacion-1.html"><a href="presentacion-1.html#pruebas-de-duncan-1"><i class="fa fa-check"></i><b>6.16.4</b> Pruebas de Duncan</a></li>
+<li class="chapter" data-level="6.16.5" data-path="presentacion-1.html"><a href="presentacion-1.html#pruebas-de-significacion-de-contrastes-para-comparaciones-pre-planeadas-1"><i class="fa fa-check"></i><b>6.16.5</b> Pruebas de significación de contrastes para comparaciones pre-planeadas</a></li>
+</ul></li>
+<li class="chapter" data-level="6.17" data-path="presentacion-1.html"><a href="presentacion-1.html#actividad-8"><i class="fa fa-check"></i><b>6.17</b> Actividad</a></li>
+<li class="chapter" data-level="6.18" data-path="presentacion-1.html"><a href="presentacion-1.html#plan-de-diseno-4"><i class="fa fa-check"></i><b>6.18</b> Plan de diseño</a></li>
+<li class="chapter" data-level="6.19" data-path="presentacion-1.html"><a href="presentacion-1.html#analisis-de-varianza-4"><i class="fa fa-check"></i><b>6.19</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="6.20" data-path="presentacion-1.html"><a href="presentacion-1.html#actividad-9"><i class="fa fa-check"></i><b>6.20</b> Actividad</a></li>
+<li class="chapter" data-level="6.21" data-path="presentacion-1.html"><a href="presentacion-1.html#plan-de-diseno-5"><i class="fa fa-check"></i><b>6.21</b> Plan de diseño</a></li>
+<li class="chapter" data-level="6.22" data-path="presentacion-1.html"><a href="presentacion-1.html#analisis-de-varianza-5"><i class="fa fa-check"></i><b>6.22</b> Análisis de Varianza</a></li>
+<li class="chapter" data-level="6.23" data-path="presentacion-1.html"><a href="presentacion-1.html#actividad-10"><i class="fa fa-check"></i><b>6.23</b> Actividad</a></li>
+<li class="chapter" data-level="6.24" data-path="presentacion-1.html"><a href="presentacion-1.html#experimentos-factorial-p-x-q-1"><i class="fa fa-check"></i><b>6.24</b> Experimentos factorial p x q</a></li>
+<li class="chapter" data-level="6.25" data-path="presentacion-1.html"><a href="presentacion-1.html#actividad-11"><i class="fa fa-check"></i><b>6.25</b> Actividad</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción a los Diseños Experimentales con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="diseno-cuadrado-latino" class="section level1">
+<h1><span class="header-section-number">Capítulo 5</span> Diseño Cuadrado Latino</h1>
+<p>En esta sección se tiene por objetivos:</p>
+<ul>
+<li>Diseñar un plan para DCL</li>
+<li>Ejecutar el análisis de varianza y evaluación de supuestos</li>
+<li>Realizar pruebas de comparaciones</li>
+</ul>
+<p>Este diseño es apropiado cuando se presentan dos factores de variación conocidas en las unidades experimentales que influyen en la respuesta de interés, siendo posible formar grupos homogéneos (Bloques) de unidades experimentales de acuerdo a los niveles que toman cada uno de estos factores de bloqueo. La característica principal de este diseño es que tan sólo se dispone de una unidad experimental por cada combinación (i, j) de los niveles de los factores de bloqueo. Es requisito que el número de grupos homogéneos (bloques) en el primer factor sea igual al número de bloques en el segundo factor. Esto nos permite representar las unidades experimentales mediante un cuadrado, donde las filas representan a un factor de bloqueo (Factor en Filas), las columnas al otro factor de bloqueo (Factor en Columnas) y cada celda representa una unidad experimental. El número <span class="math inline">\(t\)</span> de tratamientos a asignar a las unidades experimentales es igual al número de filas, así como al de columnas, siendo el número total de unidades experimentales igual a <span class="math inline">\(t^2\)</span> . La asignación aleatoria de los tratamientos a las unidades experimentales así ordenadas debe cumplir que todos los tratamientos ocurran en cada fila, e igualmente, en cada columna (modelo balanceado). Como ejemplo del uso de Cuadrado latino se tiene un experimento que considera probar cinco distintos fertilizantes en el campo (Tratamientos), y donde se pueden agrupar las parcelas (unidad experimental) de acuerdo al grado de pendiente (Factor Filas, cinco niveles) y al nivel de humedad del suelo (Factor Columnas, cinco niveles).</p>
+<div id="plan-de-diseno-2" class="section level2">
+<h2><span class="header-section-number">5.1</span> Plan de diseño</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargando paquetes</span>
+<span class="kw">library</span>(agricolae)
+trt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>)
+outdesign &lt;-<span class="st"> </span><span class="kw">design.lsd</span>(trt, <span class="dt">seed=</span><span class="dv">543</span>, <span class="dt">serie=</span><span class="dv">1</span>)
+<span class="kw">print</span>(outdesign<span class="op">$</span>sketch)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,] &quot;C&quot;  &quot;A&quot;  &quot;B&quot;  &quot;D&quot; 
+## [2,] &quot;D&quot;  &quot;B&quot;  &quot;C&quot;  &quot;A&quot; 
+## [3,] &quot;B&quot;  &quot;D&quot;  &quot;A&quot;  &quot;C&quot; 
+## [4,] &quot;A&quot;  &quot;C&quot;  &quot;D&quot;  &quot;B&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">book3 &lt;-<span class="st"> </span>outdesign<span class="op">$</span>book
+<span class="kw">print</span>(book3)</code></pre>
+<pre><code>##    plots row col trt
+## 1     11   1   1   C
+## 2     12   1   2   A
+## 3     13   1   3   B
+## 4     14   1   4   D
+## 5     21   2   1   D
+## 6     22   2   2   B
+## 7     23   2   3   C
+## 8     24   2   4   A
+## 9     31   3   1   B
+## 10    32   3   2   D
+## 11    33   3   3   A
+## 12    34   3   4   C
+## 13    41   4   1   A
+## 14    42   4   2   C
+## 15    43   4   3   D
+## 16    44   4   4   B</code></pre>
+</div>
+<div id="analisis-de-varianza-2" class="section level2">
+<h2><span class="header-section-number">5.2</span> Análisis de Varianza</h2>
+<p>El modelo aditivo lineal es:</p>
+<p><span class="math display">\[y_{ij}=\mu + \tau_i+\rho_j+\gamma_k+\epsilon_{ij}\]</span></p>
+<p>Cuando los efectos de tratamientos se consideran fijos es de interés probar:<br />
+<span class="math inline">\(H_0:\mu_1=\mu_2=... =\mu_t=\mu\)</span><br />
+<span class="math inline">\(H_1:\)</span>al menos un <span class="math inline">\(\mu_i \neq \mu\)</span></p>
+<p><em>Ejemplo:</em></p>
+<p>Un ingeniero de tránsito realizó un estudio para comparar el tiempo sin uso de la luz roja para cinco secuencias distintas de semáforo, el experimento se llevó a cabo con un diseño cuadrado latino en el que los dos factores de bloque eran: 1) cinco cruceros elegidos al azar y 2) cinco períodos. Las cinco secuencias de tratamiento son: a, b, c, d, e. Se registró el tiempo de la luz roja sin uso (en minutos).(Ejercicio 4. cap. 8. “Diseños Experimentales” (2da edición) R. Kuehl). Los datos se encuentran en el archivo: “diseño2.txt”.</p>
+<pre class="sourceCode r"><code class="sourceCode r">datos&lt;-<span class="kw">read.table</span>(<span class="st">&quot;diseño2.txt&quot;</span>,<span class="dt">header=</span>T, <span class="dt">dec=</span><span class="st">&quot;,&quot;</span>)
+<span class="kw">str</span>(datos)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    25 obs. of  4 variables:
+##  $ tiempo   : num  15.2 16.5 12.1 10.7 14.6 33.8 26.5 31.4 34.2 31.7 ...
+##  $ crucero  : int  1 2 3 4 5 1 2 3 4 5 ...
+##  $ periodo  : int  1 1 1 1 1 2 2 2 2 2 ...
+##  $ secuencia: Factor w/ 5 levels &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,..: 1 2 3 4 5 2 3 4 5 1 ...</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">datos<span class="op">$</span>crucero&lt;-<span class="kw">as.factor</span>(datos<span class="op">$</span>crucero)
+datos<span class="op">$</span>periodo&lt;-<span class="kw">as.factor</span>(datos<span class="op">$</span>periodo)
+<span class="kw">summary</span>(datos<span class="op">$</span>tiempo)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   10.70   16.70   23.80   23.13   29.10   34.20</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mosaic)
+<span class="kw">favstats</span>(tiempo<span class="op">~</span>secuencia , <span class="dt">data =</span> datos)</code></pre>
+<pre><code>##   secuencia  min   Q1 median   Q3  max  mean       sd n missing
+## 1         A 15.2 19.5   22.7 31.5 31.7 24.12 7.328847 5       0
+## 2         B 16.5 16.7   27.2 30.2 33.8 24.88 7.911827 5       0
+## 3         C 12.1 13.5   21.6 26.3 26.5 20.00 6.876772 5       0
+## 4         D 10.7 19.2   23.8 27.4 31.4 22.50 7.984986 5       0
+## 5         E 14.6 17.0   25.8 29.1 34.2 24.14 8.224232 5       0</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(datos<span class="op">$</span>secuencia,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dt">byrow=</span>T) <span class="co">#visualiza la esctructura correspondiente al cuadrado latino</span></code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,] &quot;A&quot;  &quot;B&quot;  &quot;C&quot;  &quot;D&quot;  &quot;E&quot; 
+## [2,] &quot;B&quot;  &quot;C&quot;  &quot;D&quot;  &quot;E&quot;  &quot;A&quot; 
+## [3,] &quot;C&quot;  &quot;D&quot;  &quot;E&quot;  &quot;A&quot;  &quot;B&quot; 
+## [4,] &quot;D&quot;  &quot;E&quot;  &quot;A&quot;  &quot;B&quot;  &quot;C&quot; 
+## [5,] &quot;E&quot;  &quot;A&quot;  &quot;B&quot;  &quot;C&quot;  &quot;D&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(datos,<span class="kw">aes</span>(<span class="dt">x=</span>crucero,<span class="dt">y=</span>tiempo,<span class="dt">shape=</span>periodo,<span class="dt">group=</span>secuencia))<span class="op">+</span><span class="kw">geom_point</span>()<span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">linetype=</span>secuencia))</code></pre>
+<p><img src="Introducción_a_los_diseños_experimentales_con_R_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(datos,<span class="kw">aes</span>(<span class="dt">x=</span>periodo,<span class="dt">y=</span>tiempo,<span class="dt">shape=</span>crucero,<span class="dt">group=</span>secuencia))<span class="op">+</span><span class="kw">geom_point</span>()<span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">linetype=</span>secuencia))</code></pre>
+<p><img src="Introducción_a_los_diseños_experimentales_con_R_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r">modelo3&lt;-<span class="kw">lm</span>(tiempo<span class="op">~</span>crucero<span class="op">+</span>periodo<span class="op">+</span>secuencia,datos)
+<span class="kw">anova</span>(modelo3)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: tiempo
+##           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## crucero    4   18.23   4.557  0.7801   0.55927    
+## periodo    4 1091.67 272.917 46.7222 3.202e-07 ***
+## secuencia  4   76.28  19.071  3.2648   0.04976 *  
+## Residuals 12   70.10   5.841                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(multcomp)
+citukey &lt;-<span class="st"> </span><span class="kw">confint</span>(<span class="kw">glht</span>(modelo3, <span class="dt">linfct =</span> <span class="kw">mcp</span>(<span class="dt">secuencia =</span> <span class="st">&quot;Tukey&quot;</span>)))
+<span class="kw">summary</span>(citukey)</code></pre>
+<pre><code>## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Multiple Comparisons of Means: Tukey Contrasts
+## 
+## 
+## Fit: lm(formula = tiempo ~ crucero + periodo + secuencia, data = datos)
+## 
+## Linear Hypotheses:
+##            Estimate Std. Error t value Pr(&gt;|t|)  
+## B - A == 0    0.760      1.529   0.497   0.9861  
+## C - A == 0   -4.120      1.529  -2.695   0.1134  
+## D - A == 0   -1.620      1.529  -1.060   0.8230  
+## E - A == 0    0.020      1.529   0.013   1.0000  
+## C - B == 0   -4.880      1.529  -3.193   0.0496 *
+## D - B == 0   -2.380      1.529  -1.557   0.5485  
+## E - B == 0   -0.740      1.529  -0.484   0.9874  
+## D - C == 0    2.500      1.529   1.636   0.5043  
+## E - C == 0    4.140      1.529   2.708   0.1111  
+## E - D == 0    1.640      1.529   1.073   0.8167  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## (Adjusted p values reported -- single-step method)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">op &lt;-<span class="st"> </span><span class="kw">options</span> (<span class="dt">contrasts=</span><span class="kw">c</span>(<span class="st">&quot;contr.sum&quot;</span>,<span class="st">&quot;contr.poly&quot;</span>))
+modelo3b&lt;-<span class="kw">lm</span>(tiempo<span class="op">~</span>crucero<span class="op">+</span>periodo<span class="op">+</span>secuencia,datos)
+<span class="kw">summary</span>(modelo3b)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = tiempo ~ crucero + periodo + secuencia, data = datos)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -2.784 -1.224 -0.284  1.656  3.636 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  23.1280     0.4834  47.847 4.54e-15 ***
+## crucero1      0.6720     0.9667   0.695 0.500223    
+## crucero2     -0.9880     0.9667  -1.022 0.326951    
+## crucero3      1.3120     0.9667   1.357 0.199719    
+## crucero4     -0.4880     0.9667  -0.505 0.622852    
+## periodo1     -9.3080     0.9667  -9.628 5.38e-07 ***
+## periodo2      8.3920     0.9667   8.681 1.61e-06 ***
+## periodo3     -5.9480     0.9667  -6.153 4.93e-05 ***
+## periodo4      4.5120     0.9667   4.667 0.000544 ***
+## secuencia1    0.9920     0.9667   1.026 0.325076    
+## secuencia2    1.7520     0.9667   1.812 0.095025 .  
+## secuencia3   -3.1280     0.9667  -3.236 0.007145 ** 
+## secuencia4   -0.6280     0.9667  -0.650 0.528189    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.417 on 12 degrees of freedom
+## Multiple R-squared:  0.9442, Adjusted R-squared:  0.8884 
+## F-statistic: 16.92 on 12 and 12 DF,  p-value: 1.092e-05</code></pre>
+</div>
+<div id="actividad-4" class="section level2">
+<h2><span class="header-section-number">5.3</span> Actividad</h2>
+<p>Plantee un diseño cuadrado latino con 5 tratamientos.</p>
+<p>En un experimento reportado por Davies (1954), cuatro materiales A, B, C y D fueron probados en una máquina de desgaste. La respuesta medida es la pérdida de peso en 0.1mm sobre el período de prueba. La máquina puede procesar cuatro muestras a la vez y experiencias pasadas indican que hubieron algunas diferencias debido a la posición ubicada de estas cuatro muestras. Así también algunas diferencias se sospecha que puede haberse dado por las diferentes corridas.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(faraway)
+datos&lt;-<span class="kw">data</span>(abrasion,<span class="dt">package=</span><span class="st">&quot;faraway&quot;</span>)</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="diseno-en-bloque-completamente-al-azar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduccion-a-los-experimentos-factoriales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-summary.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["IntroducciÃ³n a los diseÃ±os experimentales con R.pdf", "IntroducciÃ³n a los diseÃ±os experimentales con R.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
