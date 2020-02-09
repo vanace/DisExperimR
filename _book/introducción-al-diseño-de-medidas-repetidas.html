@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 6 Introducción a los Experimentos factoriales | Introducción a los Diseños Experimentales con R</title>
+  <title>Capítulo 7 Introducción al diseño de Medidas Repetidas | Introducción a los Diseños Experimentales con R</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 6 Introducción a los Experimentos factoriales | Introducción a los Diseños Experimentales con R" />
+  <meta property="og:title" content="Capítulo 7 Introducción al diseño de Medidas Repetidas | Introducción a los Diseños Experimentales con R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 6 Introducción a los Experimentos factoriales | Introducción a los Diseños Experimentales con R" />
+  <meta name="twitter:title" content="Capítulo 7 Introducción al diseño de Medidas Repetidas | Introducción a los Diseños Experimentales con R" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="diseño-cuadrado-latino.html"/>
-<link rel="next" href="introducción-al-diseño-de-medidas-repetidas.html"/>
+<link rel="prev" href="introducción-a-los-experimentos-factoriales.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -155,7 +155,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.2" data-path="introducción-a-los-experimentos-factoriales.html"><a href="introducción-a-los-experimentos-factoriales.html#actividad-5"><i class="fa fa-check"></i><b>6.2</b> Actividad</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="introducción-al-diseño-de-medidas-repetidas.html"><a href="introducción-al-diseño-de-medidas-repetidas.html"><i class="fa fa-check"></i><b>7</b> Introducción al diseño de Medidas Repetidas</a><ul>
-<li class="chapter" data-level="7.1" data-path="introducción-al-diseño-de-medidas-repetidas.html"><a href="introducción-al-diseño-de-medidas-repetidas.html#experimento-de-un-factor-con-medidas-reptidas"><i class="fa fa-check"></i><b>7.1</b> Experimento de un factor con medidas reptidas</a></li>
+<li class="chapter" data-level="7.1" data-path="introducción-al-diseño-de-medidas-repetidas.html"><a href="introducción-al-diseño-de-medidas-repetidas.html#experimento-de-un-factor-con-medidas-repetidas"><i class="fa fa-check"></i><b>7.1</b> Experimento de un factor con medidas repetidas</a></li>
 <li class="chapter" data-level="7.2" data-path="introducción-al-diseño-de-medidas-repetidas.html"><a href="introducción-al-diseño-de-medidas-repetidas.html#actividad-6"><i class="fa fa-check"></i><b>7.2</b> Actividad</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -217,174 +217,257 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introducción-a-los-experimentos-factoriales" class="section level1">
-<h1><span class="header-section-number">Capítulo 6</span> Introducción a los Experimentos factoriales</h1>
-<p>Un experimento factorial es aquel en el que se estudian simultáneamente varios factores, de modo que los tratamientos se forman por todas las posibles combinaciones de los niveles de los factores. Un experimento factorial no constituye un nuevo diseño experimental, sino un diseño para la formación de los tratamientos. Los experimentos factoriales pueden ser conducidos bajo los lineamientos de cualquier diseño experimental tal como el DCA, DBCA o DCL.</p>
-<ul>
-<li>Permite obtener más información que en un experimento de un solo factor.</li>
-<li>Todas las unidades intervienen en la estimación de los efectos principales y de interacción, por lo que el número de repeticiones suele ser elevados.</li>
-<li>Se requiere un mayor número de unidades experimentales que en los experimentos simples.</li>
-<li>Todos los niveles de un factor se combinan con todos los niveles de los otros factores, sin embargo no siempre todas las combinaciones son de interés para el investigador.</li>
-<li>El análisis estadístico y la interpretación de los resultados es más complicado que en los experimentos simples con un solo factor.</li>
-</ul>
-<p>En un experimento factorial un tratamiento corresponde a la combinación de los niveles de dos o más factores.</p>
-<div id="experimentos-factorial-p-x-q" class="section level2">
-<h2><span class="header-section-number">6.1</span> Experimentos factorial p x q</h2>
-<p>Un experimento con dos factores con <span class="math inline">\(p\)</span> y <span class="math inline">\(q\)</span> niveles en un diseño Completo al Azar el modelo aditivo lineal es: <span class="math display">\[y_{ijk}=\mu + \alpha_i+\beta_j+\alpha\beta_{ij}+\epsilon_{ijk}\]</span></p>
-<p>Podemos probar las hipótesis de que las medias marginales son todas iguales, o en términos de los efectos <span class="math inline">\(\alpha_i\)</span> son todas iguales a cero, y <span class="math inline">\(\beta_j\)</span> son todas iguales a cero. Además de probar la hipótesis de que los efectos de interacción son todos iguales a cero.</p>
-<p>¿Cómo hacemos esto, en qué orden y cómo interpretamos estas pruebas?</p>
-<p>Uno de los propósitos de un diseño factorial es ser eficiente en la estimación y prueba de los factores A y B en un solo experimento. A menudo estamos interesados principalmente en los efectos principales. A veces, también nos interesa saber si los factores interactúan. En cualquier caso, la primera prueba que deberíamos hacer es la prueba de los efectos de interacción.</p>
-<p><em>Ejemplo:</em><br />
-Se realizó un experimento con un arreglo factorial 2x3 en DBCA en 4 campos de cultivo el efecto en el rendimiento de maíz obtenido con dos tipos de abono (a1 y a2) y tres dosis (b1=20, b2=30 y b3=40 kg/ha). Los datos se encuentran en el archivo: “factorial1.txt”</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datos&lt;-<span class="kw">read.table</span>(<span class="st">&quot;factorial1.txt&quot;</span>,<span class="dt">header=</span>T)
-<span class="kw">str</span>(datos)</code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    24 obs. of  4 variables:
-##  $ y     : num  1.9 2.3 2 2.1 1.8 2.1 2.4 2.9 2.7 2.4 ...
-##  $ B     : int  1 1 1 1 2 2 2 2 3 3 ...
-##  $ A     : int  1 1 1 1 1 1 1 1 1 1 ...
-##  $ Bloque: int  1 2 3 4 1 2 3 4 1 2 ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datos<span class="op">$</span>Bloque&lt;-<span class="kw">as.factor</span>(datos<span class="op">$</span>Bloque)
-datos<span class="op">$</span>A&lt;-<span class="kw">as.factor</span>(datos<span class="op">$</span>A)
-datos<span class="op">$</span>B&lt;-<span class="kw">as.factor</span>(datos<span class="op">$</span>B)
-<span class="kw">library</span>(mosaic)
-<span class="kw">favstats</span>(y<span class="op">~</span>A<span class="op">+</span>B , <span class="dt">data =</span> datos)</code></pre></div>
-<pre><code>##   A.B min    Q1 median    Q3 max  mean        sd n missing
-## 1 1.1 1.9 1.975   2.05 2.150 2.3 2.075 0.1707825 4       0
-## 2 2.1 1.8 1.950   2.10 2.250 2.4 2.100 0.2581989 4       0
-## 3 1.2 1.8 2.025   2.25 2.525 2.9 2.300 0.4690416 4       0
-## 4 2.2 2.7 2.850   3.05 3.275 3.5 3.075 0.3500000 4       0
-## 5 1.3 2.4 2.625   2.75 2.825 2.9 2.700 0.2160247 4       0
-## 6 2.3 2.9 2.975   3.10 3.250 3.4 3.125 0.2217356 4       0</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">modelo&lt;-<span class="kw">lm</span>(y<span class="op">~</span>Bloque<span class="op">+</span>A<span class="op">+</span>B<span class="op">+</span>A<span class="op">*</span>B,datos)
-<span class="kw">anova</span>(modelo)</code></pre></div>
-<pre><code>## Analysis of Variance Table
-## 
-## Response: y
-##           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
-## Bloque     3 0.80458 0.26819  5.0418 0.0129833 *  
-## A          1 1.00042 1.00042 18.8068 0.0005869 ***
-## B          2 2.91000 1.45500 27.3525 9.913e-06 ***
-## A:B        2 0.56333 0.28167  5.2950 0.0182032 *  
-## Residuals 15 0.79792 0.05319                      
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfcol=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
-<span class="kw">plot</span>(modelo, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</code></pre></div>
+<div id="introducción-al-diseño-de-medidas-repetidas" class="section level1">
+<h1><span class="header-section-number">Capítulo 7</span> Introducción al diseño de Medidas Repetidas</h1>
+<p>En un diseño de medidas repetidas se evalúa el efecto de un factor sobre una variable medida en dos o más ocasiones para un mismo individuo o para varios individuos que pertenecen a un mismo grupo. Como los múltiples valores en la variable están correlacionados entre ellos ya no es posible usar ANOVA en su forma tradicional, donde los errores de estimación son independientes entre los niveles del factor</p>
+<div id="experimento-de-un-factor-con-medidas-repetidas" class="section level2">
+<h2><span class="header-section-number">7.1</span> Experimento de un factor con medidas repetidas</h2>
+<p><em>Ejemplo:</em> Los datos corresponden a un grupo de 12 niños observados a los 30, 36, 42 y 48 meses, de quienes se ha registrado el coeficiente intelectual. Los datos se encuentran el archivo: “repet1.txt”</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;repet1.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)
+data</code></pre></div>
+<pre><code>##    id Months30 Months36 Months42 Months48
+## 1   1      108       96      110      122
+## 2   2      103      117      127      133
+## 3   3       96      107      106      107
+## 4   4       84       85       92       99
+## 5   5      118      125      125      116
+## 6   6      110      107       96       91
+## 7   7      129      128      123      128
+## 8   8       90       84      101      113
+## 9   9       84      104      100       88
+## 10 10       96      100      103      105
+## 11 11      105      114      105      112
+## 12 12      113      117      132      130</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reshape)
+data2 &lt;-<span class="st"> </span><span class="kw">melt</span>(data, <span class="dt">id=</span><span class="st">&quot;id&quot;</span>)
+<span class="kw">str</span>(data2)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    48 obs. of  3 variables:
+##  $ id      : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ variable: Factor w/ 4 levels &quot;Months30&quot;,&quot;Months36&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ value   : int  108 103 96 84 118 110 129 90 84 96 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data2<span class="op">$</span>id=<span class="kw">as.factor</span>(data2<span class="op">$</span>id)
+
+<span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(<span class="dt">data=</span> data2,<span class="kw">aes</span>(<span class="dt">x=</span>variable, <span class="dt">y=</span>value, <span class="dt">group=</span>id))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> id))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">group =</span> id))</code></pre></div>
 <p><img src="Introducci%C3%B3n-a-los-dise%C3%B1os-experimentales-con-R_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(phia)
-modelo.means &lt;-<span class="st"> </span><span class="kw">interactionMeans</span>(modelo,<span class="dt">factors=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>))
-modelo.means</code></pre></div>
-<pre><code>##   A B adjusted mean std. error
-## 1 1 1         2.075  0.1153196
-## 2 2 1         2.100  0.1153196
-## 3 1 2         2.300  0.1153196
-## 4 2 2         3.075  0.1153196
-## 5 1 3         2.700  0.1153196
-## 6 2 3         3.125  0.1153196</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(modelo.means)</code></pre></div>
-<p><img src="Introducci%C3%B3n-a-los-dise%C3%B1os-experimentales-con-R_files/figure-html/unnamed-chunk-1-2.png" width="672" /> Es posible observar que al 5% de significancia hay evidencia de interacción entre el tipo de abono y dosis. ¿Cómo analizar esta interacción?</p>
-<p>Realizando análisis de Efectos Simples: <em>Análisis de efectos simples</em></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">testInteractions</span>(modelo, <span class="dt">fixed=</span><span class="st">&quot;A&quot;</span>, <span class="dt">across=</span><span class="st">&quot;B&quot;</span>)</code></pre></div>
-<pre><code>## F Test: 
-## P-value adjustment method: holm
-##               B1    B2 Df Sum of Sq       F    Pr(&gt;F)    
-## 1         -0.625 -0.40  2   0.80167  7.5352  0.005428 ** 
-## 2         -1.025 -0.05  2   2.67167 25.1123 3.263e-05 ***
-## Residuals              15   0.79792                      
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">testInteractions</span>(modelo, <span class="dt">fixed=</span><span class="st">&quot;B&quot;</span>, <span class="dt">across=</span><span class="st">&quot;A&quot;</span>)</code></pre></div>
-<pre><code>## F Test: 
-## P-value adjustment method: holm
-##            Value Df Sum of Sq       F    Pr(&gt;F)    
-## 1         -0.025  1   0.00125  0.0235 0.8802105    
-## 2         -0.775  1   1.20125 22.5822 0.0007709 ***
-## 3         -0.425  1   0.36125  6.7911 0.0397223 *  
-## Residuals        15   0.79792                      
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p><em>Análisis de residuales</em></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">obs.table &lt;-<span class="st"> </span><span class="kw">xtabs</span>(modelo.means<span class="op">$</span><span class="st">&quot;adjusted mean&quot;</span> <span class="op">~</span><span class="st"> </span>A <span class="op">+</span><span class="st"> </span>B, modelo.means)
-obs.table&lt;-<span class="st"> </span><span class="kw">addmargins</span>(obs.table,<span class="dt">FUN=</span>mean,<span class="dt">quiet=</span><span class="ot">TRUE</span>)
-<span class="kw">print</span>(obs.table,<span class="dt">digits=</span><span class="dv">4</span>)</code></pre></div>
-<pre><code>##       B
-## A          1     2     3  mean
-##   1    2.075 2.300 2.700 2.358
-##   2    2.100 3.075 3.125 2.767
-##   mean 2.088 2.688 2.913 2.563</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res.table &lt;-<span class="st"> </span>obs.table <span class="op">-</span><span class="st"> </span>obs.table[<span class="dv">3</span>,<span class="dv">4</span>] <span class="co"># restando la media</span>
-res.table &lt;-<span class="st"> </span><span class="kw">sweep</span>(res.table, <span class="dv">1</span>, res.table[,<span class="dv">4</span>]) <span class="co"># restando media fila</span>
-res.table &lt;-<span class="st"> </span><span class="kw">sweep</span>(res.table, <span class="dv">2</span>, res.table[<span class="dv">3</span>,]) <span class="co"># restando media comlumna</span>
-<span class="kw">print</span>(res.table, <span class="dt">digits=</span><span class="dv">4</span>)</code></pre></div>
-<pre><code>##       B
-## A              1         2         3      mean
-##   1     0.191667 -0.183333 -0.008333  0.000000
-##   2    -0.191667  0.183333  0.008333  0.000000
-##   mean  0.000000  0.000000  0.000000  0.000000</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">testInteractions</span>(modelo,<span class="dt">residual=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>))</code></pre></div>
-<pre><code>## F Test: 
-## P-value adjustment method: holm
-##                             Value Df Sum of Sq      F  Pr(&gt;F)  
-## 1 (resid.) : 1 (resid.)  0.191667  1   0.44083 8.2872 0.06887 .
-## 2 (resid.) : 1 (resid.) -0.191667  1   0.44083 8.2872 0.06887 .
-## 1 (resid.) : 2 (resid.) -0.183333  1   0.40333 7.5822 0.06887 .
-## 2 (resid.) : 2 (resid.)  0.183333  1   0.40333 7.5822 0.06887 .
-## 1 (resid.) : 3 (resid.) -0.008333  1   0.00083 0.0157 1.00000  
-## 2 (resid.) : 3 (resid.)  0.008333  1   0.00083 0.0157 1.00000  
-## Residuals                         15   0.79792                 
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matplot</span>(<span class="kw">t</span>(res.table[<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">4</span>]), <span class="dt">type=</span><span class="st">&quot;b&quot;</span>, <span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;residuales interacción&quot;)</span>
-<span class="st">axis(1, at=1:3, labels=levels(datos$B))</span></code></pre></div>
-<p><img src="Introducci%C3%B3n-a-los-dise%C3%B1os-experimentales-con-R_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>Utilizando los ejercicios del ejemplo, y con un nivel de significancia del 1% hay evidencia de interacción entre el tipo de abono y dosis. ¿Realizaría un análisis de efectos simples o principales?</p>
-<p><em>Análisis de efectos principales</em></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model2&lt;-<span class="kw">lm</span>(y<span class="op">~</span>Bloque<span class="op">+</span>A<span class="op">+</span>B,datos)
-<span class="kw">library</span>(multcomp)
-citukey &lt;-<span class="st"> </span><span class="kw">confint</span>(<span class="kw">glht</span>(model2, <span class="dt">linfct =</span> <span class="kw">mcp</span>(<span class="dt">A =</span> <span class="st">&quot;Tukey&quot;</span>)))
-<span class="kw">summary</span>(citukey)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">modelo.aov&lt;-<span class="kw">summary</span>(<span class="kw">aov</span>(value<span class="op">~</span>variable<span class="op">+</span><span class="kw">Error</span>(id<span class="op">/</span>variable),<span class="dt">data=</span>data2))
+modelo.aov</code></pre></div>
 <pre><code>## 
-##   Simultaneous Tests for General Linear Hypotheses
+## Error: id
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Residuals 11   6624   602.2               
 ## 
-## Multiple Comparisons of Means: Tukey Contrasts
+## Error: id:variable
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## variable   3    552  184.00   3.027 0.0432 *
+## Residuals 33   2006   60.79                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Prueba de esfericidad de Mauchly y ajsute de F</span>
+month.levels&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)
+month.factor&lt;-<span class="kw">as.factor</span>(month.levels)
+month.frame&lt;-<span class="kw">data.frame</span>(month.factor)
+data.matrix&lt;-<span class="kw">as.matrix</span>(data[<span class="op">-</span><span class="dv">1</span>])
+month.model&lt;-<span class="kw">lm</span>(data.matrix<span class="op">~</span><span class="dv">1</span>)
+
+<span class="kw">library</span>(car)
+
+rm.aov&lt;-<span class="kw">Anova</span>(month.model, <span class="dt">idata =</span> month.frame, <span class="dt">idesign =</span> <span class="op">~</span>month.factor)
+<span class="kw">summary</span>(rm.aov)</code></pre></div>
+<pre><code>## 
+## Type III Repeated Measures MANOVA Tests:
 ## 
+## ------------------------------------------
+##  
+## Term: (Intercept) 
 ## 
-## Fit: lm(formula = y ~ Bloque + A + B, data = datos)
+##  Response transformation matrix:
+##          (Intercept)
+## Months30           1
+## Months36           1
+## Months42           1
+## Months48           1
 ## 
-## Linear Hypotheses:
-##            Estimate Std. Error t value Pr(&gt;|t|)   
-## 2 - 1 == 0   0.4083     0.1155   3.535  0.00255 **
+## Sum of squares and products for the hypothesis:
+##             (Intercept)
+## (Intercept)     2239488
+## 
+## Multivariate Tests: (Intercept)
+##                  Df test stat approx F num Df den Df     Pr(&gt;F)    
+## Pillai            1   0.98831 929.7391      1     11 5.5863e-12 ***
+## Wilks             1   0.01169 929.7391      1     11 5.5863e-12 ***
+## Hotelling-Lawley  1  84.52174 929.7391      1     11 5.5863e-12 ***
+## Roy               1  84.52174 929.7391      1     11 5.5863e-12 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## (Adjusted p values reported -- single-step method)</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">citukey &lt;-<span class="st"> </span><span class="kw">confint</span>(<span class="kw">glht</span>(model2, <span class="dt">linfct =</span> <span class="kw">mcp</span>(<span class="dt">B =</span> <span class="st">&quot;Tukey&quot;</span>)))
-<span class="kw">summary</span>(citukey)</code></pre></div>
-<pre><code>## 
-##   Simultaneous Tests for General Linear Hypotheses
 ## 
-## Multiple Comparisons of Means: Tukey Contrasts
+## ------------------------------------------
+##  
+## Term: month.factor 
 ## 
+##  Response transformation matrix:
+##          month.factor1 month.factor2 month.factor3
+## Months30             1             0             0
+## Months36             0             1             0
+## Months42             0             0             1
+## Months48            -1            -1            -1
 ## 
-## Fit: lm(formula = y ~ Bloque + A + B, data = datos)
+## Sum of squares and products for the hypothesis:
+##               month.factor1 month.factor2 month.factor3
+## month.factor1           972           540           216
+## month.factor2           540           300           120
+## month.factor3           216           120            48
 ## 
-## Linear Hypotheses:
-##            Estimate Std. Error t value Pr(&gt;|t|)    
-## 2 - 1 == 0   0.6000     0.1415   4.241  0.00142 ** 
-## 3 - 1 == 0   0.8250     0.1415   5.831  &lt; 0.001 ***
-## 3 - 2 == 0   0.2250     0.1415   1.590  0.27645    
+## Multivariate Tests: month.factor
+##                  Df test stat approx F num Df den Df  Pr(&gt;F)
+## Pillai            1 0.4274916 2.240098      3      9 0.15284
+## Wilks             1 0.5725084 2.240098      3      9 0.15284
+## Hotelling-Lawley  1 0.7466993 2.240098      3      9 0.15284
+## Roy               1 0.7466993 2.240098      3      9 0.15284
+## 
+## Univariate Type III Repeated-Measures ANOVA Assuming Sphericity
+## 
+##              Sum Sq num Df Error SS den Df  F value    Pr(&gt;F)    
+## (Intercept)  559872      1     6624     11 929.7391 5.586e-12 ***
+## month.factor    552      3     2006     33   3.0269   0.04322 *  
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## (Adjusted p values reported -- single-step method)</code></pre>
+## 
+## 
+## Mauchly Tests for Sphericity
+## 
+##              Test statistic  p-value
+## month.factor        0.24265 0.017718
+## 
+## 
+## Greenhouse-Geisser and Huynh-Feldt Corrections
+##  for Departure from Sphericity
+## 
+##               GG eps Pr(&gt;F[GG])  
+## month.factor 0.60954    0.07479 .
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##                 HF eps Pr(&gt;F[HF])
+## month.factor 0.7248502 0.06353773</code></pre>
 </div>
-<div id="actividad-5" class="section level2">
-<h2><span class="header-section-number">6.2</span> Actividad</h2>
-<p>La industria experiemntal examinó el número de roturas de hilo dependiendo de dos tipos de lana y tres niveles de tensión usando una máquina de tejer. (Tukey 1977). Los datos se encuentran en la librería faraway con el nombre de warpbreaks</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(faraway)
-<span class="kw">str</span>(warpbreaks)</code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    54 obs. of  3 variables:
-##  $ breaks : num  26 30 54 25 70 52 51 26 67 18 ...
-##  $ wool   : Factor w/ 2 levels &quot;A&quot;,&quot;B&quot;: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ tension: Factor w/ 3 levels &quot;L&quot;,&quot;M&quot;,&quot;H&quot;: 1 1 1 1 1 1 1 1 1 2 ...</code></pre>
+<div id="actividad-6" class="section level2">
+<h2><span class="header-section-number">7.2</span> Actividad</h2>
+<p>Los datos ‘Orthodont’ contiene la distancia desde la pituitaria hasta la fisura pterygomaxillary (mm) medida a lo largo de 8, 10, 12 y 14 años. ¿Podría concluirse si a través del tiempo la distancia varía entre los sujetos?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nlme)
+Orthodont</code></pre></div>
+<pre><code>## Grouped Data: distance ~ age | Subject
+##     distance age Subject    Sex
+## 1       26.0   8     M01   Male
+## 2       25.0  10     M01   Male
+## 3       29.0  12     M01   Male
+## 4       31.0  14     M01   Male
+## 5       21.5   8     M02   Male
+## 6       22.5  10     M02   Male
+## 7       23.0  12     M02   Male
+## 8       26.5  14     M02   Male
+## 9       23.0   8     M03   Male
+## 10      22.5  10     M03   Male
+## 11      24.0  12     M03   Male
+## 12      27.5  14     M03   Male
+## 13      25.5   8     M04   Male
+## 14      27.5  10     M04   Male
+## 15      26.5  12     M04   Male
+## 16      27.0  14     M04   Male
+## 17      20.0   8     M05   Male
+## 18      23.5  10     M05   Male
+## 19      22.5  12     M05   Male
+## 20      26.0  14     M05   Male
+## 21      24.5   8     M06   Male
+## 22      25.5  10     M06   Male
+## 23      27.0  12     M06   Male
+## 24      28.5  14     M06   Male
+## 25      22.0   8     M07   Male
+## 26      22.0  10     M07   Male
+## 27      24.5  12     M07   Male
+## 28      26.5  14     M07   Male
+## 29      24.0   8     M08   Male
+## 30      21.5  10     M08   Male
+## 31      24.5  12     M08   Male
+## 32      25.5  14     M08   Male
+## 33      23.0   8     M09   Male
+## 34      20.5  10     M09   Male
+## 35      31.0  12     M09   Male
+## 36      26.0  14     M09   Male
+## 37      27.5   8     M10   Male
+## 38      28.0  10     M10   Male
+## 39      31.0  12     M10   Male
+## 40      31.5  14     M10   Male
+## 41      23.0   8     M11   Male
+## 42      23.0  10     M11   Male
+## 43      23.5  12     M11   Male
+## 44      25.0  14     M11   Male
+## 45      21.5   8     M12   Male
+## 46      23.5  10     M12   Male
+## 47      24.0  12     M12   Male
+## 48      28.0  14     M12   Male
+## 49      17.0   8     M13   Male
+## 50      24.5  10     M13   Male
+## 51      26.0  12     M13   Male
+## 52      29.5  14     M13   Male
+## 53      22.5   8     M14   Male
+## 54      25.5  10     M14   Male
+## 55      25.5  12     M14   Male
+## 56      26.0  14     M14   Male
+## 57      23.0   8     M15   Male
+## 58      24.5  10     M15   Male
+## 59      26.0  12     M15   Male
+## 60      30.0  14     M15   Male
+## 61      22.0   8     M16   Male
+## 62      21.5  10     M16   Male
+## 63      23.5  12     M16   Male
+## 64      25.0  14     M16   Male
+## 65      21.0   8     F01 Female
+## 66      20.0  10     F01 Female
+## 67      21.5  12     F01 Female
+## 68      23.0  14     F01 Female
+## 69      21.0   8     F02 Female
+## 70      21.5  10     F02 Female
+## 71      24.0  12     F02 Female
+## 72      25.5  14     F02 Female
+## 73      20.5   8     F03 Female
+## 74      24.0  10     F03 Female
+## 75      24.5  12     F03 Female
+## 76      26.0  14     F03 Female
+## 77      23.5   8     F04 Female
+## 78      24.5  10     F04 Female
+## 79      25.0  12     F04 Female
+## 80      26.5  14     F04 Female
+## 81      21.5   8     F05 Female
+## 82      23.0  10     F05 Female
+## 83      22.5  12     F05 Female
+## 84      23.5  14     F05 Female
+## 85      20.0   8     F06 Female
+## 86      21.0  10     F06 Female
+## 87      21.0  12     F06 Female
+## 88      22.5  14     F06 Female
+## 89      21.5   8     F07 Female
+## 90      22.5  10     F07 Female
+## 91      23.0  12     F07 Female
+## 92      25.0  14     F07 Female
+## 93      23.0   8     F08 Female
+## 94      23.0  10     F08 Female
+## 95      23.5  12     F08 Female
+## 96      24.0  14     F08 Female
+## 97      20.0   8     F09 Female
+## 98      21.0  10     F09 Female
+## 99      22.0  12     F09 Female
+## 100     21.5  14     F09 Female
+## 101     16.5   8     F10 Female
+## 102     19.0  10     F10 Female
+## 103     19.0  12     F10 Female
+## 104     19.5  14     F10 Female
+## 105     24.5   8     F11 Female
+## 106     25.0  10     F11 Female
+## 107     28.0  12     F11 Female
+## 108     28.0  14     F11 Female</code></pre>
 
 </div>
 </div>
@@ -393,8 +476,8 @@ citukey &lt;-<span class="st"> </span><span class="kw">confint</span>(<span clas
           </div>
         </div>
       </div>
-<a href="diseño-cuadrado-latino.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introducción-al-diseño-de-medidas-repetidas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introducción-a-los-experimentos-factoriales.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -425,7 +508,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-references.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-references.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -444,20 +527,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

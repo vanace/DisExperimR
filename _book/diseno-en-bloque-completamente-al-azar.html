@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Capítulo 4 Diseño en Bloque Completamente al Azar | Introducción a los Diseños Experimentales con R</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Capítulo 4 Diseño en Bloque Completamente al Azar | Introducción a los Diseños Experimentales con R" />
   <meta property="og:type" content="book" />
@@ -21,14 +22,14 @@
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
 
-<meta name="author" content="Ana Vargas   e-mail:anavargas@lamolina.edu.pe" />
+<meta name="author" content="Ana Vargas   e-mail:anavargas@lamolina.edu.pe">
 
 
-<meta name="date" content="2020-02-07" />
+<meta name="date" content="2019-01-27">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="diseno-completamente-al-azar.html">
@@ -50,67 +51,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -178,43 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="introduccion-a-los-experimentos-factoriales.html"><a href="introduccion-a-los-experimentos-factoriales.html#actividad-5"><i class="fa fa-check"></i><b>6.2</b> Actividad</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="" data-path="presentacion-1.html"><a href="presentacion-1.html"><i class="fa fa-check"></i>Presentación</a><ul>
-<li class="chapter" data-level="6.3" data-path="presentacion-1.html"><a href="presentacion-1.html#que-es-el-metodo-cientifico-1"><i class="fa fa-check"></i><b>6.3</b> ¿Qué es el método científico?</a><ul>
-<li><a href="presentacion-1.html#actividad-6"><em>ACTIVIDAD</em></a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="presentacion-1.html"><a href="presentacion-1.html#estudio-de-diseno-observacional-o-estudio-de-diseno-experimental-1"><i class="fa fa-check"></i><b>6.4</b> ¿Estudio de diseño observacional o estudio de diseño experimental?</a></li>
-<li class="chapter" data-level="6.5" data-path="presentacion-1.html"><a href="presentacion-1.html#breve-historia-de-los-diseno-de-experimentos-1"><i class="fa fa-check"></i><b>6.5</b> Breve historia de los diseño de experimentos</a></li>
-<li class="chapter" data-level="6.6" data-path="presentacion-1.html"><a href="presentacion-1.html#principios-basicos-de-los-disenos-experimentales-1"><i class="fa fa-check"></i><b>6.6</b> Principios básicos de los diseños experimentales</a></li>
-<li class="chapter" data-level="6.7" data-path="presentacion-1.html"><a href="presentacion-1.html#pasos-para-planear-conducir-y-analizar-un-experimento-1"><i class="fa fa-check"></i><b>6.7</b> Pasos para planear, conducir y analizar un experimento</a></li>
-<li class="chapter" data-level="6.8" data-path="presentacion-1.html"><a href="presentacion-1.html#elementos-basicos-1"><i class="fa fa-check"></i><b>6.8</b> Elementos básicos</a><ul>
-<li class="chapter" data-level="6.8.1" data-path="presentacion-1.html"><a href="presentacion-1.html#unidad-experimental-1"><i class="fa fa-check"></i><b>6.8.1</b> Unidad experimental</a></li>
-<li class="chapter" data-level="6.8.2" data-path="presentacion-1.html"><a href="presentacion-1.html#error-experimental-1"><i class="fa fa-check"></i><b>6.8.2</b> Error experimental</a></li>
-<li class="chapter" data-level="6.8.3" data-path="presentacion-1.html"><a href="presentacion-1.html#factor-1"><i class="fa fa-check"></i><b>6.8.3</b> Factor</a></li>
-</ul></li>
-<li class="chapter" data-level="6.9" data-path="presentacion-1.html"><a href="presentacion-1.html#prueba-t-para-dos-muestras-independientes-1"><i class="fa fa-check"></i><b>6.9</b> Prueba t para dos muestras independientes</a></li>
-<li class="chapter" data-level="6.10" data-path="presentacion-1.html"><a href="presentacion-1.html#ejemplo-motivacion-y-creatividad.-un-experimento-aleatorizado-1"><i class="fa fa-check"></i><b>6.10</b> Ejemplo: Motivación y creatividad. Un experimento aleatorizado</a></li>
-<li class="chapter" data-level="6.11" data-path="presentacion-1.html"><a href="presentacion-1.html#sobre-los-supuestos-1"><i class="fa fa-check"></i><b>6.11</b> Sobre los supuestos:</a></li>
-<li class="chapter" data-level="6.12" data-path="presentacion-1.html"><a href="presentacion-1.html#actividad-7"><i class="fa fa-check"></i><b>6.12</b> Actividad</a></li>
-<li class="chapter" data-level="6.13" data-path="presentacion-1.html"><a href="presentacion-1.html#plan-de-diseno-3"><i class="fa fa-check"></i><b>6.13</b> Plan de diseño</a></li>
-<li class="chapter" data-level="6.14" data-path="presentacion-1.html"><a href="presentacion-1.html#analisis-de-varianza-3"><i class="fa fa-check"></i><b>6.14</b> Análisis de Varianza</a></li>
-<li class="chapter" data-level="6.15" data-path="presentacion-1.html"><a href="presentacion-1.html#prueba-de-comparaciones-por-pares-1"><i class="fa fa-check"></i><b>6.15</b> Prueba de Comparaciones por pares</a></li>
-<li class="chapter" data-level="6.16" data-path="presentacion-1.html"><a href="presentacion-1.html#prueba-de-comparaciones-multiples-1"><i class="fa fa-check"></i><b>6.16</b> Prueba de comparaciones Múltiples</a><ul>
-<li class="chapter" data-level="6.16.1" data-path="presentacion-1.html"><a href="presentacion-1.html#diferencia-minima-significativadls-1"><i class="fa fa-check"></i><b>6.16.1</b> Diferencia Mínima Significativa(DLS)</a></li>
-<li class="chapter" data-level="6.16.2" data-path="presentacion-1.html"><a href="presentacion-1.html#prueba-de-tukey-para-post-hoc-comparaciones-de-pares-de-tratamientos-1"><i class="fa fa-check"></i><b>6.16.2</b> Prueba de Tukey para <em>post-hoc</em> comparaciones de pares de tratamientos</a></li>
-<li class="chapter" data-level="6.16.3" data-path="presentacion-1.html"><a href="presentacion-1.html#prueba-de-dunnett-para-comparar-cada-uno-de-los-tratamientos-a-un-control-1"><i class="fa fa-check"></i><b>6.16.3</b> Prueba de Dunnett para comparar cada uno de los tratamientos a un control</a></li>
-<li class="chapter" data-level="6.16.4" data-path="presentacion-1.html"><a href="presentacion-1.html#pruebas-de-duncan-1"><i class="fa fa-check"></i><b>6.16.4</b> Pruebas de Duncan</a></li>
-<li class="chapter" data-level="6.16.5" data-path="presentacion-1.html"><a href="presentacion-1.html#pruebas-de-significacion-de-contrastes-para-comparaciones-pre-planeadas-1"><i class="fa fa-check"></i><b>6.16.5</b> Pruebas de significación de contrastes para comparaciones pre-planeadas</a></li>
-</ul></li>
-<li class="chapter" data-level="6.17" data-path="presentacion-1.html"><a href="presentacion-1.html#actividad-8"><i class="fa fa-check"></i><b>6.17</b> Actividad</a></li>
-<li class="chapter" data-level="6.18" data-path="presentacion-1.html"><a href="presentacion-1.html#plan-de-diseno-4"><i class="fa fa-check"></i><b>6.18</b> Plan de diseño</a></li>
-<li class="chapter" data-level="6.19" data-path="presentacion-1.html"><a href="presentacion-1.html#analisis-de-varianza-4"><i class="fa fa-check"></i><b>6.19</b> Análisis de Varianza</a></li>
-<li class="chapter" data-level="6.20" data-path="presentacion-1.html"><a href="presentacion-1.html#actividad-9"><i class="fa fa-check"></i><b>6.20</b> Actividad</a></li>
-<li class="chapter" data-level="6.21" data-path="presentacion-1.html"><a href="presentacion-1.html#plan-de-diseno-5"><i class="fa fa-check"></i><b>6.21</b> Plan de diseño</a></li>
-<li class="chapter" data-level="6.22" data-path="presentacion-1.html"><a href="presentacion-1.html#analisis-de-varianza-5"><i class="fa fa-check"></i><b>6.22</b> Análisis de Varianza</a></li>
-<li class="chapter" data-level="6.23" data-path="presentacion-1.html"><a href="presentacion-1.html#actividad-10"><i class="fa fa-check"></i><b>6.23</b> Actividad</a></li>
-<li class="chapter" data-level="6.24" data-path="presentacion-1.html"><a href="presentacion-1.html#experimentos-factorial-p-x-q-1"><i class="fa fa-check"></i><b>6.24</b> Experimentos factorial p x q</a></li>
-<li class="chapter" data-level="6.25" data-path="presentacion-1.html"><a href="presentacion-1.html#actividad-11"><i class="fa fa-check"></i><b>6.25</b> Actividad</a></li>
-</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -254,13 +192,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="plan-de-diseno-1" class="section level2">
 <h2><span class="header-section-number">4.1</span> Plan de diseño</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargando paquetes</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargando paquetes</span>
 <span class="kw">library</span>(agricolae)
 trt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>)
 repeticion &lt;-<span class="st"> </span><span class="dv">4</span>
 outdesign &lt;-<span class="st"> </span><span class="kw">design.rcbd</span>(trt,<span class="dt">r=</span>repeticion, <span class="dt">seed=</span><span class="op">-</span><span class="dv">513</span>, <span class="dt">serie=</span><span class="dv">1</span>)
 book2 &lt;-<span class="st"> </span>outdesign<span class="op">$</span>book
-<span class="kw">print</span>(book2)</code></pre>
+<span class="kw">print</span>(book2)</code></pre></div>
 <pre><code>##    plots block trt
 ## 1     11     1   D
 ## 2     12     1   B
@@ -285,38 +223,37 @@ book2 &lt;-<span class="st"> </span>outdesign<span class="op">$</span>book
 </div>
 <div id="analisis-de-varianza-1" class="section level2">
 <h2><span class="header-section-number">4.2</span> Análisis de Varianza</h2>
-<p>El modelo aditivo lineal:
-<span class="math display">\[y_{ij}=\mu + \tau_i+\rho_j+\epsilon_{ij}\]</span></p>
+<p>El modelo aditivo lineal: <span class="math display">\[y_{ij}=\mu + \tau_i+\rho_j+\epsilon_{ij}\]</span></p>
 <p>Cuando los efectos de tratamientos se consideran fijos es de interés probar:<br />
 <span class="math inline">\(H_0:\mu_1=\mu_2=... =\mu_t=\mu\)</span><br />
 <span class="math inline">\(H_1:\)</span>al menos un <span class="math inline">\(\mu_i \neq \mu\)</span></p>
 <p><em>Ejemplo:</em></p>
 <p>Se están comparando tres soluciones de lavado diferentes a fin de estudiar su efectividad para retardar el crecimiento de bacterias en contenedores de leche de 5 galones. El análisis se hace en un laboratorio y sólo pueden realizarse tres ensayos en un día. Por lo que se hacen observaciones en cuatro días distintos para cada tratamiento, asignando aleatoriamente la solución de lavado a cada contenedor. Los resultados se encuentran en el archivo: “diseño1.txt” (Montgomery “Diseños Experimentales”. Ejercicio 4.2)</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(multcomp)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(multcomp)
 <span class="kw">library</span>(mosaic)
 datos&lt;-<span class="kw">read.table</span>(<span class="st">&quot;diseño1.txt&quot;</span>,<span class="dt">header=</span>T)
 datos<span class="op">$</span>dias&lt;-<span class="kw">as.factor</span>(datos<span class="op">$</span>dias)
 datos<span class="op">$</span>solucion&lt;-<span class="kw">as.factor</span>(datos<span class="op">$</span>solucion)
-<span class="kw">favstats</span>(efectividad <span class="op">~</span><span class="st"> </span>solucion, <span class="dt">data =</span> datos)</code></pre>
-<pre><code>##   solucion min    Q1 median    Q3 max  mean        sd n missing
-## 1        1  13 16.75   20.0 26.25  39 23.00 11.284207 4       0
-## 2        2  16 16.75   20.5 29.00  44 25.25 12.996794 4       0
-## 3        3   1  3.25    4.5  9.25  22  8.00  9.486833 4       0</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(datos<span class="op">$</span>efectividad<span class="op">~</span>datos<span class="op">$</span>solucion,<span class="dt">xlab=</span><span class="st">&quot;solucion&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;efectividad&quot;</span>)</code></pre>
-<p><img src="Introducción_a_los_diseños_experimentales_con_R_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r">modelo1&lt;-<span class="kw">lm</span>(efectividad<span class="op">~</span>dias<span class="op">+</span>solucion,datos)
-<span class="kw">anova</span>(modelo1)</code></pre>
+<span class="kw">favstats</span>(efectividad <span class="op">~</span><span class="st"> </span>solucion, <span class="dt">data =</span> datos)</code></pre></div>
+<pre><code>##   solucion min   Q1 median   Q3 max mean   sd n missing
+## 1        1  13 16.8   20.0 26.2  39   23 11.3 4       0
+## 2        2  16 16.8   20.5 29.0  44   25 13.0 4       0
+## 3        3   1  3.2    4.5  9.2  22    8  9.5 4       0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(datos<span class="op">$</span>efectividad<span class="op">~</span>datos<span class="op">$</span>solucion,<span class="dt">xlab=</span><span class="st">&quot;solucion&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;efectividad&quot;</span>)</code></pre></div>
+<p><img src="Introducci%C3%B3n_a_los_dise%C3%B1os_experimentales_con_R_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">modelo1&lt;-<span class="kw">lm</span>(efectividad<span class="op">~</span>dias<span class="op">+</span>solucion,datos)
+<span class="kw">anova</span>(modelo1)</code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: efectividad
-##           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
-## dias       3 1106.92  368.97  42.711 0.0001925 ***
-## solucion   2  703.50  351.75  40.717 0.0003232 ***
-## Residuals  6   51.83    8.64                      
+##           Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## dias       3   1107     369    42.7 0.00019 ***
+## solucion   2    703     352    40.7 0.00032 ***
+## Residuals  6     52       9                    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">citukey &lt;-<span class="st"> </span><span class="kw">confint</span>(<span class="kw">glht</span>(modelo1, <span class="dt">linfct =</span> <span class="kw">mcp</span>(<span class="dt">solucion =</span> <span class="st">&quot;Tukey&quot;</span>)))
-<span class="kw">summary</span>(citukey)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">citukey &lt;-<span class="st"> </span><span class="kw">confint</span>(<span class="kw">glht</span>(modelo1, <span class="dt">linfct =</span> <span class="kw">mcp</span>(<span class="dt">solucion =</span> <span class="st">&quot;Tukey&quot;</span>)))
+<span class="kw">summary</span>(citukey)</code></pre></div>
 <pre><code>## 
 ##   Simultaneous Tests for General Linear Hypotheses
 ## 
@@ -327,41 +264,41 @@ datos<span class="op">$</span>solucion&lt;-<span class="kw">as.factor</span>(dat
 ## 
 ## Linear Hypotheses:
 ##            Estimate Std. Error t value Pr(&gt;|t|)    
-## 2 - 1 == 0    2.250      2.078   1.083    0.558    
-## 3 - 1 == 0  -15.000      2.078  -7.217   &lt;0.001 ***
-## 3 - 2 == 0  -17.250      2.078  -8.300   &lt;0.001 ***
+## 2 - 1 == 0     2.25       2.08    1.08     0.56    
+## 3 - 1 == 0   -15.00       2.08   -7.22   &lt;0.001 ***
+## 3 - 2 == 0   -17.25       2.08   -8.30   &lt;0.001 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## (Adjusted p values reported -- single-step method)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#En téminos de efectos:</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#En téminos de efectos:</span>
 op &lt;-<span class="st"> </span><span class="kw">options</span> (<span class="dt">contrasts=</span><span class="kw">c</span>(<span class="st">&quot;contr.sum&quot;</span>,<span class="st">&quot;contr.poly&quot;</span>))
 modelo2&lt;-<span class="kw">lm</span>(efectividad<span class="op">~</span>dias<span class="op">+</span>solucion,datos)
-<span class="kw">summary</span>(modelo2)</code></pre>
+<span class="kw">summary</span>(modelo2)</code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = efectividad ~ dias + solucion, data = datos)
 ## 
 ## Residuals:
 ##    Min     1Q Median     3Q    Max 
-## -2.583 -1.854 -0.250  1.250  4.417 
+##  -2.58  -1.85  -0.25   1.25   4.42 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  18.7500     0.8485  22.099 5.61e-07 ***
-## dias1        -7.4167     1.4696  -5.047  0.00234 ** 
-## dias2        -2.0833     1.4696  -1.418  0.20608    
-## dias3        -6.7500     1.4696  -4.593  0.00372 ** 
-## solucion1     4.2500     1.1999   3.542  0.01219 *  
-## solucion2     6.5000     1.1999   5.417  0.00164 ** 
+## (Intercept)   18.750      0.848   22.10  5.6e-07 ***
+## dias1         -7.417      1.470   -5.05   0.0023 ** 
+## dias2         -2.083      1.470   -1.42   0.2061    
+## dias3         -6.750      1.470   -4.59   0.0037 ** 
+## solucion1      4.250      1.200    3.54   0.0122 *  
+## solucion2      6.500      1.200    5.42   0.0016 ** 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 2.939 on 6 degrees of freedom
-## Multiple R-squared:  0.9722, Adjusted R-squared:  0.949 
-## F-statistic: 41.91 on 5 and 6 DF,  p-value: 0.0001371</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
-<span class="kw">plot</span>(modelo1)</code></pre>
-<p><img src="Introducción_a_los_diseños_experimentales_con_R_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+## Residual standard error: 2.9 on 6 degrees of freedom
+## Multiple R-squared:  0.972,  Adjusted R-squared:  0.949 
+## F-statistic: 41.9 on 5 and 6 DF,  p-value: 0.000137</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(modelo1)</code></pre></div>
+<p><img src="Introducci%C3%B3n_a_los_dise%C3%B1os_experimentales_con_R_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
 </div>
 <div id="actividad-3" class="section level2">
 <h2><span class="header-section-number">4.3</span> Actividad</h2>
@@ -431,25 +368,17 @@ modelo2&lt;-<span class="kw">lm</span>(efectividad<span class="op">~</span>dias<
 </li>
 <li>Analice los datos. Pruebe las hipótesis de interés, use <span class="math inline">\(\alpha=0.05\)</span>.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargando datos</span>
-ejercitarse &lt;-<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;ejercitarse&quot;</span>)
-<span class="kw">str</span>(ejercitarse)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargando datos</span>
+ejercitarse &lt;-<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;~/GuiaDisenoExperimR/ejercitarse&quot;</span>)
+<span class="kw">str</span>(ejercitarse)</code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    8 obs. of  4 variables:
 ##  $ Sujeto  : num  1 2 3 4 5 6 7 8
 ##  $ Correr  : num  1.4 1.5 1.8 1.7 1.6 1.5 1.7 2
 ##  $ Caminar : num  1.1 1.2 1.3 1.3 0.7 1.2 1.1 1.3
 ##  $ Ciclismo: num  0.7 0.8 0.7 0.8 0.1 0.7 0.4 0.6</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reshape)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;reshape&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:Matrix&#39;:
-## 
-##     expand</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     rename</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">ejercitarse2 &lt;-<span class="st"> </span><span class="kw">melt</span>(ejercitarse, <span class="dt">id=</span><span class="st">&quot;Sujeto&quot;</span>)
-<span class="kw">str</span>(ejercitarse2)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reshape)
+ejercitarse2 &lt;-<span class="st"> </span><span class="kw">melt</span>(ejercitarse, <span class="dt">id=</span><span class="st">&quot;Sujeto&quot;</span>)
+<span class="kw">str</span>(ejercitarse2)</code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    24 obs. of  3 variables:
 ##  $ Sujeto  : num  1 2 3 4 5 6 7 8 1 2 ...
 ##  $ variable: Factor w/ 3 levels &quot;Correr&quot;,&quot;Caminar&quot;,..: 1 1 1 1 1 1 1 1 2 2 ...
@@ -500,7 +429,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["IntroducciÃ³n a los diseÃ±os experimentales con R.pdf", "IntroducciÃ³n a los diseÃ±os experimentales con R.epub"],
+"download": ["Introducción a los diseños experimentales con R.pdf", "Introducción a los diseños experimentales con R.epub"],
 "toc": {
 "collapse": "subsection"
 }
@@ -513,7 +442,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
