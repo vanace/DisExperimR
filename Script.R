@@ -1,5 +1,5 @@
 ##CAPÍTULO 2: EXPERIMENTOS SIMPLES COMPARATIVOS###
-
+####Editando la segunda línea
 # cargando paquetes y datos:
 # Ejemplo:
 library(Sleuth2) #Contiene datos y ejemplos
