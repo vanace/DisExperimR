@@ -1,4 +1,5 @@
 ##CAPÍTULO 2: EXPERIMENTOS SIMPLES COMPARATIVOS###
+#Agregar esta línea. Creada por usuario unalmdei
 ####Editando la segunda línea
 # cargando paquetes y datos:
 # Ejemplo:
